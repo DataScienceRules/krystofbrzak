@@ -8,53 +8,61 @@
     },
     "profile": {
       "header": "Ahoj, přistáli jste na webu projeťáka Kryštofa",
-      "tag": "Kry\u0161tof Brz\u00e1k",
+      "servicesHeader": "Služby",
+      "techHeader": "Technologie",
+      "tag": "Kryštof Brzák",
       "content1": "Přetvářím vize v realitu",
       "content2": "Vedení týmu k úspěšnému cíli",
       "content3": "Vývoj systémů na zelené louce",
-      "content4": "Inženýr • Manažer • Leader"
+      "content4": "Inženýr • Manažer • Leader",
+      "service1Title": "Projektové vedení",
+      "service1Text": "Od zadání k jasnému plánu, prioritám a dodání.",
+      "service2Title": "Týmová koordinace",
+      "service2Text": "Propojuji business, vývoj i provoz do jednoho funkčního celku.",
+      "service3Title": "Technický přesah",
+      "service3Text": "Pomáhám navrhovat systémy, procesy i smysluplné MVP."
     },
     "tech": {
-      "gpt": "Jazykov\u00e9 modely a vibe coding",
+      "gpt": "Jazykové modely a vibe coding",
       "python": "Python",
-      "sql": "To nest\u00e1rne",
-      "git": "N\u011bkde je to pot\u0159eba verzovat",
+      "sql": "To nestárne",
+      "git": "Někde je to potřeba verzovat",
       "devops": "Tickety, sprinty, buildy... you know it",
       "powerbi": "PowerBI, DAX, M",
       "api": "REST API"
     },
     "traits": {
-      "label1": "Spolupracuj\u00edc\u00ed",
-      "label2": "Nez\u00e1visl\u00fd",
-      "label3": "Rezervovan\u00fd",
-      "label4": "Dru\u017en\u00fd",
-      "label5": "Dynamick\u00fd",
-      "label6": "Stabiln\u00ed",
-      "label7": "Flexibiln\u00ed",
-      "label8": "Precizn\u00ed"
+      "label1": "Spolupracující",
+      "label2": "Nezávislý",
+      "label3": "Rezervovaný",
+      "label4": "Družný",
+      "label5": "Dynamický",
+      "label6": "Stabilní",
+      "label7": "Flexibilní",
+      "label8": "Precizní"
     },
     "journey": {
       "header": "Cesta",
-      "journey1": "Přestože byl pohovor původně na data inženýra, projekťák nakonec sedl mnohem lépe. \nSpolupráce s podnikateli na nových nápadech a start-upech je pro mě skvělé a inspirativní vyžití.\n",
-      "journey2": "Po završení úspěšné spolupráce s IDC CEMA jsem zkoušel své štěstí v zemi klokanů a velkých pavouků. Poslední velká cesta přes půl světa vedla přes rozlehlou a barevnou asii. Navzdory nepopsatelnému chaosu Pákistánu jsem měl příležitost vidět K2, druhou nejvyšší horu světa.\n\nAustrálie, pro mnohé země zaslíbená, mě naučila kromě surfování a farmaření i trpělivosti, která je nezbytná pokud má člověk obstát v konkurenci. A nakonec jsem si připomněl i své vlastní kulturní kořeny a to jak jsem na ně hrdý.",
-      "journey3": "Nomádství byla největší příležitost v nešťastných kovidových časech. Obrovská svoboda byla v šíleném kontrastu s lockdowny v České republice.\n\nÉra plná dobrodružství a skvělých lidí. Setkal jsem se s nejpestřejší sortou lidí jakou si snad lze představit. Od nomádů přežívajících z prodeje ručně vyráběných náramků až po začínající podnikatele a akademiky.\n\nPřespal jsem pod mostem, v kostarické džungli i v pronajatých vilách s bazénem a výhledem na oceán. Je trochu zázrak, že to notebook, na kterém jsem celou dobu vyvíjel, to celé přežil.",
+      "journey1": "Přestože byl pohovor původně na data inženýra, projekťák nakonec sedl mnohem lépe.\nSpolupráce s podnikateli na nových nápadech a start-upech je pro mě skvělé a inspirativní vyžití.",
+      "journey2": "Po završení úspěšné spolupráce s IDC CEMA jsem zkoušel své štěstí v zemi klokanů a velkých pavouků. Poslední velká cesta přes půl světa vedla přes rozlehlou a barevnou Asii. Navzdory nepopsatelnému chaosu Pákistánu jsem měl příležitost vidět K2, druhou nejvyšší horu světa.\n\nAustrálie, pro mnohé země zaslíbená, mě naučila kromě surfování a farmaření i trpělivosti, která je nezbytná, pokud má člověk obstát v konkurenci. A nakonec jsem si připomněl i své vlastní kulturní kořeny a to, jak jsem na ně hrdý.",
+      "journey3": "Nomádství byla největší příležitost v nešťastných covidových časech. Obrovská svoboda byla v šíleném kontrastu s lockdowny v České republice.\n\nÉra plná dobrodružství a skvělých lidí. Setkal jsem se s nejpestřejší sortou lidí, jakou si snad lze představit. Od nomádů přežívajících z prodeje ručně vyráběných náramků až po začínající podnikatele a akademiky.\n\nPřespal jsem pod mostem, v kostarické džungli i v pronajatých vilách s bazénem a výhledem na oceán. Je trochu zázrak, že to notebook, na kterém jsem celou dobu vyvíjel, celé přežil.",
       "journey4": "",
-      "journey5": "Sen každého studenta! Etablovaná firma nabízí příležitosti pro každého zelenáče a němčina je tady velkou výhodou. Prošel jsem si odděleními softwarového vývoje i mezinárodního marketingu. \n\nModerní obchodní koncepty zpracování telematických dat dodaly stáži perspektivu i námět na diplomovou práci.",
-      "item1": "Projek\u0165\u00e1kem n\u00e1hodou",
-      "item2": "Na n\u00e1v\u0161t\u011bv\u011b u protino\u017ec\u016f",
+      "journey5": "Sen každého studenta! Etablovaná firma nabízí příležitosti pro každého zelenáče a němčina je tady velkou výhodou. Prošel jsem si odděleními softwarového vývoje i mezinárodního marketingu.\n\nModerní obchodní koncepty zpracování telematických dat dodaly stáži perspektivu i námět na diplomovou práci.",
+      "item1": "Projekťákem náhodou",
+      "item2": "Na návštěvě u protinožců",
       "item3": "Život digitálního nomáda",
-      "item4": "Studentsk\u00e1 l\u00e9ta",
-      "item5": "Prvn\u00ed st\u00e1\u017e ve \u0160koda Auto!"
+      "item4": "Studentská léta",
+      "item5": "První stáž ve Škoda Auto!"
     },
     "etymology": {
       "header": "Etymologie",
-      "content": "Pro\u010d Neoprotero? M\u00e1te r\u00e1di p\u0159\u00edb\u011bhy (ze) \u017eivota?\n\nNeoproterozoikum ozna\u010duje dlouh\u00e9 obdob\u00ed evoluce. B\u011bhem Neoproterozoika se \u017eivot za\u010dal p\u0159eskupovat a vyvinuly se prvn\u00ed mnohobun\u011b\u010dn\u00e9 organismy. Zm\u011bny na Zemi byly dalekos\u00e1hl\u00e9 a mnoho star\u0161\u00edch kmen\u016f organism\u016f \u010delilo vyhynut\u00ed.\n\nP\u0159ipom\u00edn\u00e1 n\u00e1m, jak sv\u011bt se neust\u00e1le m\u011bn\u00ed a my se m\u011bn\u00edme s n\u00edm."
+      "content": "Proč Neoprotero? Máte rádi příběhy (ze) života?\n\nNeoproterozoikum označuje dlouhé období evoluce. Během Neoproterozoika se život začal přeskupovat a vyvinuly se první mnohobuněčné organismy. Změny na Zemi byly dalekosáhlé a mnoho starších kmenů organismů čelilo vyhynutí.\n\nPřipomíná nám, jak svět se neustále mění a my se měníme s ním."
     },
     "contact": {
       "header": "Kontakt",
-      "content": "Pot\u0159ebujete najmout zv\u00ed\u0159e pro v\u00e1\u0161 dal\u0161\u00ed projekt?"
+      "content": "Potřebujete najmout zvíře pro váš další projekt?"
     },
-    "footer": "\u00a9 Kry\u0161tof Brz\u00e1k 2026 I\u010cO: 22433805"
+    "footer": "© Kryštof Brzák 2026 IČO: 22433805"
   },
   "en": {
     "menu": {
@@ -64,20 +72,28 @@
       "contact": "Contact"
     },
     "profile": {
-      "header": "Profile",
-      "tag": "Kry\u0161tof Brz\u00e1k",
-      "content": "In publishing and graphic design, lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation, such as web pages, typography, and graphical layout. It is a form of \"greeking\".\n\nEven though using \"lorem ipsum\" often arouses curiosity due to its resemblance to classical Latin, it is not intended to have meaning. Where text is visible in a document, people tend to focus on the textual content rather than upon overall presentation, so publishers use lorem ipsum when displaying a typeface or design in order to direct the focus to presentation. \"Lorem ipsum\" also approximates a typical distribution of letters in English.",
-      "header2": "",
-      "content2": "In publishing and graphic design, lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation, such as web pages, typography, and graphical layout. It is a form of \"greeking\".\n\nEven though using \"lorem ipsum\" often arouses curiosity due to its resemblance to classical Latin, it is not intended to have meaning. Where text is visible in a document, people tend to focus on the textual content rather than upon overall presentation, so publishers use lorem ipsum when displaying a typeface or design in order to direct the focus to presentation. \"Lorem ipsum\" also approximates a typical distribution of letters in English.",
-      "content3": ""
+      "header": "Hi, you just landed on Kryštof's project manager site",
+      "servicesHeader": "Services",
+      "techHeader": "Tech stack",
+      "tag": "Kryštof Brzák",
+      "content1": "Turning visions into reality",
+      "content2": "Leading teams toward successful outcomes",
+      "content3": "Building systems from scratch",
+      "content4": "Engineer • Manager • Leader",
+      "service1Title": "Project delivery",
+      "service1Text": "From brief to a clear plan, priorities, and execution.",
+      "service2Title": "Team coordination",
+      "service2Text": "I connect business, engineering, and operations into one working whole.",
+      "service3Title": "Technical overlap",
+      "service3Text": "I help shape systems, processes, and meaningful MVPs."
     },
     "tech": {
-      "gpt": "ChatGPT",
+      "gpt": "Language models and vibe coding",
       "python": "Python",
-      "sql": "SQL",
-      "git": "Git",
-      "devops": "DevOps",
-      "powerbi": "Power BI",
+      "sql": "This one never gets old",
+      "git": "Some things simply need versioning",
+      "devops": "Tickets, sprints, builds... you know it",
+      "powerbi": "Power BI, DAX, M",
       "api": "REST API"
     },
     "traits": {
@@ -92,26 +108,26 @@
     },
     "journey": {
       "header": "Journey",
-      "journey1": "",
-      "journey2": "",
-      "journey3": "",
+      "journey1": "Even though the interview was originally for a data engineer role, project management turned out to be a much better fit.\nWorking with founders on new ideas and startups has become a genuinely inspiring part of my work.",
+      "journey2": "After wrapping up a successful collaboration with IDC CEMA, I tried my luck in the land of kangaroos and giant spiders. The last major trip across half the world took me through vast and colorful Asia. Despite the indescribable chaos of Pakistan, I had the chance to see K2, the second-highest mountain in the world.\n\nAustralia, for many a promised land, taught me not only surfing and farm work but also the patience you need if you want to stay competitive. In the end, it also reminded me of my own cultural roots and how proud I am of them.",
+      "journey3": "Digital nomad life was the biggest opportunity in those unfortunate covid years. That enormous freedom stood in wild contrast to the lockdowns back in the Czech Republic.\n\nIt was an era full of adventure and great people. I met the widest range of people imaginable, from nomads surviving on handmade bracelet sales to aspiring founders and academics.\n\nI slept under a bridge, in the Costa Rican jungle, and in rented villas with pools and ocean views. It is honestly a bit of a miracle that the laptop I built everything on survived it all.",
       "journey4": "",
-      "journey5": "",
-      "item1": "Accidentally became a project manager",
-      "item2": "Visiting Australia",
-      "item3": "Life of a digital nomad",
+      "journey5": "A student's dream. An established company offering opportunities even to complete newcomers, with German as a major advantage. I worked across software development as well as international marketing.\n\nModern business concepts around telematics data processing gave the internship both perspective and a topic for my diploma thesis.",
+      "item1": "Project manager by accident",
+      "item2": "A visit down under",
+      "item3": "Life as a digital nomad",
       "item4": "Student years",
-      "item5": "First internship at \u0160koda Auto!"
+      "item5": "First internship at Škoda Auto!"
     },
     "etymology": {
       "header": "Etymology",
-      "content": "Why Neoprotero? Do you like life stories?\n\nThe Neoproterozoic marks a long period of evolution. During the Neoproterozoic era, life began to reorganize and the first multicellular organisms evolved. Changes on Earth were profound and many older groups of organisms faced extinction.\n\nIt reminds us how the world constantly changes and we change with it."
+      "content": "Why Neoprotero? Do you like stories from life?\n\nThe Neoproterozoic marks a long period of evolution. During this era, life began to reorganize and the first multicellular organisms emerged. Changes on Earth were profound, and many older branches of life faced extinction.\n\nIt reminds us that the world is constantly changing and that we are changing with it."
     },
     "contact": {
       "header": "Contact",
-      "content": "Looking to hire someone for your next project?"
+      "content": "Need to hire a beast for your next project?"
     },
-    "footer": "\u00a9 Kry\u0161tof Brz\u00e1k 2026 Company Registration Number: 22433805"
+    "footer": "© Kryštof Brzák 2026 Company ID: 22433805"
   },
   "de": {
     "menu": {
@@ -121,54 +137,61 @@
       "contact": "Kontakt"
     },
     "profile": {
-      "header": "Profil",
-      "tag": "Kry\u0161tof Brz\u00e1k",
-      "content": "In publishing and graphic design, lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation, such as web pages, typography, and graphical layout. It is a form of \"greeking\".\n\nEven though using \"lorem ipsum\" often arouses curiosity due to its resemblance to classical Latin, it is not intended to have meaning. Where text is visible in a document, people tend to focus on the textual content rather than upon overall presentation, so publishers use lorem ipsum when displaying a typeface or design in order to direct the focus to presentation. \"Lorem ipsum\" also approximates a typical distribution of letters in English.",
-      "header2": "",
-      "content2": "In publishing and graphic design, lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation, such as web pages, typography, and graphical layout. It is a form of \"greeking\".\n\nEven though using \"lorem ipsum\" often arouses curiosity due to its resemblance to classical Latin, it is not intended to have meaning. Where text is visible in a document, people tend to focus on the textual content rather than upon overall presentation, so publishers use lorem ipsum when displaying a typeface or design in order to direct the focus to presentation. \"Lorem ipsum\" also approximates a typical distribution of letters in English.",
-      "content3": ""
+      "header": "Hallo, Sie sind auf der Website des Projektmanagers Kryštof gelandet",
+      "servicesHeader": "Leistungen",
+      "techHeader": "Technologie-Stack",
+      "tag": "Kryštof Brzák",
+      "content1": "Ich verwandle Visionen in Realität",
+      "content2": "Ich führe Teams zum erfolgreichen Ziel",
+      "content3": "Ich entwickle Systeme auf der grünen Wiese",
+      "content4": "Ingenieur • Manager • Leader",
+      "service1Title": "Projektleitung",
+      "service1Text": "Vom Briefing zu einem klaren Plan, Prioritäten und Lieferung.",
+      "service2Title": "Teamkoordination",
+      "service2Text": "Ich verbinde Business, Entwicklung und Betrieb zu einem funktionierenden Ganzen.",
+      "service3Title": "Technischer Überblick",
+      "service3Text": "Ich helfe bei Systemen, Prozessen und sinnvollen MVPs."
     },
     "tech": {
-      "gpt": "ChatGPT",
+      "gpt": "Sprachmodelle und Vibe Coding",
       "python": "Python",
-      "sql": "SQL",
-      "git": "Git",
-      "devops": "DevOps",
-      "powerbi": "Power BI",
+      "sql": "Das altert einfach nicht",
+      "git": "Manches muss eben versioniert werden",
+      "devops": "Tickets, Sprints, Builds... Sie kennen das",
+      "powerbi": "Power BI, DAX, M",
       "api": "REST API"
     },
     "traits": {
       "label1": "Kooperativ",
-      "label2": "Unabh\u00e4ngig",
-      "label3": "Zur\u00fcckhaltend",
+      "label2": "Unabhängig",
+      "label3": "Zurückhaltend",
       "label4": "Gesellig",
       "label5": "Dynamisch",
       "label6": "Stabil",
       "label7": "Flexibel",
-      "label8": "Pr\u00e4zise"
+      "label8": "Präzise"
     },
     "journey": {
       "header": "Werdegang",
-      "journey1": "",
-      "journey2": "",
-      "journey3": "",
+      "journey1": "Obwohl das Gespräch ursprünglich für eine Data-Engineer-Position gedacht war, passte Projektmanagement am Ende deutlich besser.\nDie Zusammenarbeit mit Unternehmern an neuen Ideen und Start-ups ist für mich zu einer inspirierenden Art geworden, mich einzubringen.",
+      "journey2": "Nach der erfolgreichen Zusammenarbeit mit IDC CEMA versuchte ich mein Glück im Land der Kängurus und großen Spinnen. Die letzte große Reise über die halbe Welt führte mich durch das weite und farbenreiche Asien. Trotz des unbeschreiblichen Chaos in Pakistan hatte ich die Gelegenheit, K2 zu sehen, den zweithöchsten Berg der Welt.\n\nAustralien, für viele ein gelobtes Land, lehrte mich neben Surfen und Farmarbeit auch Geduld, die man braucht, um im Wettbewerb zu bestehen. Am Ende erinnerte es mich auch an meine eigenen kulturellen Wurzeln und daran, wie stolz ich auf sie bin.",
+      "journey3": "Das Nomadenleben war in den unglücklichen Covid-Jahren die größte Chance. Diese enorme Freiheit stand in starkem Kontrast zu den Lockdowns in Tschechien.\n\nEs war eine Ära voller Abenteuer und großartiger Menschen. Ich traf auf die verschiedensten Menschen, die man sich vorstellen kann, von Nomaden, die vom Verkauf handgemachter Armbänder lebten, bis hin zu angehenden Unternehmern und Akademikern.\n\nIch übernachtete unter einer Brücke, im costa-ricanischen Dschungel und in gemieteten Villen mit Pool und Meerblick. Es ist fast ein Wunder, dass der Laptop, auf dem ich die ganze Zeit entwickelt habe, das alles überlebt hat.",
       "journey4": "",
-      "journey5": "",
-      "item1": "Zuf\u00e4llig Projektmanager geworden",
-      "item2": "Besuch in Australien",
+      "journey5": "Der Traum jedes Studenten. Ein etabliertes Unternehmen, das Chancen auch für Einsteiger bietet, und Deutsch ist hier ein großer Vorteil. Ich durchlief Bereiche der Softwareentwicklung ebenso wie des internationalen Marketings.\n\nModerne Geschäftskonzepte zur Verarbeitung von Telematikdaten gaben dem Praktikum sowohl Perspektive als auch ein Thema für meine Diplomarbeit.",
+      "item1": "Projektmanager durch Zufall",
+      "item2": "Zu Besuch bei den Antipoden",
       "item3": "Leben als digitaler Nomade",
       "item4": "Studienjahre",
-      "item5": "Erstes Praktikum bei \u0160koda Auto!"
+      "item5": "Erstes Praktikum bei Škoda Auto!"
     },
     "etymology": {
       "header": "Etymologie",
-      "content": "Warum Neoprotero? M\u00f6gen Sie Lebensgeschichten?\n\nDas Neoproterozoikum bezeichnet eine lange Evolutionsperiode. W\u00e4hrend dieser Zeit begann sich das Leben neu zu organisieren und die ersten mehrzelligen Organismen entwickelten sich. Die Ver\u00e4nderungen auf der Erde waren tiefgreifend und viele \u00e4ltere Organismengruppen starben aus.\n\nEs erinnert uns daran, dass sich die Welt st\u00e4ndig ver\u00e4ndert und wir uns mit ihr."
+      "content": "Warum Neoprotero? Mögen Sie Geschichten aus dem Leben?\n\nDas Neoproterozoikum bezeichnet eine lange Phase der Evolution. In dieser Zeit begann sich das Leben neu zu ordnen und die ersten mehrzelligen Organismen entstanden. Die Veränderungen auf der Erde waren tiefgreifend und viele ältere Organismengruppen standen vor dem Aussterben.\n\nEs erinnert uns daran, dass sich die Welt ständig verändert und wir uns mit ihr verändern."
     },
     "contact": {
       "header": "Kontakt",
-      "content": "Suchen Sie Unterst\u00fctzung f\u00fcr Ihr n\u00e4chstes Projekt?"
+      "content": "Brauchen Sie ein Tier für Ihr nächstes Projekt?"
     },
-    "footer": "\u00a9 Kry\u0161tof Brz\u00e1k 2026 Firmen-Ident.-Nr.: 22433805"
+    "footer": "© Kryštof Brzák 2026 Firmen-ID: 22433805"
   }
 }
-

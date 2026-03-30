@@ -2,7 +2,6 @@
 
 <html lang="cs">
 <head>
-    <!--<script src="javascripts.js"></script>-->
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +10,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="canonical" id="canonical-link" href="https://neoprotero.com/cs">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.4/pixi.min.js"></script>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Neoprotero">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:title" content="Kryštof Brzák | Projektové vedení, vývoj systémů a delivery">
+    <meta property="og:description" content="Projektové vedení, týmová koordinace a technický přesah. Osobní web Kryštofa Brzáka.">
+    <meta property="og:url" content="https://neoprotero.com/cs">
+    <meta property="og:image" content="https://neoprotero.com/photos/profile.jpg">
+    <meta property="og:image:alt" content="Kryštof Brzák">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.4/pixi.min.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,22 +29,15 @@
 
     <title>Neoprotero</title>
 </head>
-
-<!-- Google tag (gtag.js) -->
+<body>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QRFSJ7JYQR"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-QRFSJ7JYQR');
-</script>
+<script src="analytics.js" defer></script>
 
 <!-- Navigation -->
 <header class="header">
-    <div>
-        <img src="photos/monogram.png" alt="KB" class="monogram" href="#profile">
-    </div>
+    <a href="#profile" class="monogram-link scroll" aria-label="Přejít na profil">
+        <img src="photos/alrfhowhtf0vr9ctvpat.avif" alt="KB" class="monogram" width="48" height="48" decoding="async">
+    </a>
 
     <nav id="nav-menu" class="nav">
         <a href="#profile" class="scroll" data-translate="menu.profile"></a>
@@ -48,67 +50,26 @@
             </div>
 
             <div class="lang-options">
-                <img src="flags/icons8-czech-republic-50.png" class="flag" data-lang="cs" alt="Czech" onclick="setLanguage('cs')">
-                <img src="flags/icons8-great-britain-50.png" class="flag" data-lang="en" alt="English" onclick="setLanguage('en')">
-                <img src="flags/icons8-germany-50.png" class="flag" data-lang="de" alt="German" onclick="setLanguage('de')">
+                <img src="flags/icons8-czech-republic-50.png" class="flag" data-lang="cs" alt="Czech">
+                <img src="flags/icons8-great-britain-50.png" class="flag" data-lang="en" alt="English">
+                <img src="flags/icons8-germany-50.png" class="flag" data-lang="de" alt="German">
 
             </div>
         </div>
     </nav>
 
 
-    <div class="hamburger" id="hamburger">
-        ☰
-    </div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
 </header>
-
-<!-- Menu and Language switcher -->
-<script>
-    const hamburger = document.getElementById("hamburger");
-    const navMenu = document.getElementById("nav-menu");
-
-    const langDropdown = document.querySelector('.lang-dropdown');
-    const selectedLang = document.querySelector('.selected-lang img');
-    const langOptions = document.querySelectorAll('.lang-options .flag');
-
-    // Toggle hamburger menu
-    hamburger.addEventListener("click", (e) => {
-        e.stopPropagation();           // prevent click from bubbling
-        navMenu.classList.toggle("show");
-    });
-
-    // Toggle language dropdown
-    langDropdown.addEventListener('click', (e) => {
-        e.stopPropagation();
-        langDropdown.classList.toggle('open');
-    });
-
-    // When selecting a language
-    langOptions.forEach(flag => {
-        flag.addEventListener('click', (e) => {
-            e.stopPropagation();
-            selectedLang.src = e.target.src;
-            langDropdown.classList.remove('open');
-        });
-    });
-
-    // CLOSE EVERYTHING ON OUTSIDE CLICK
-    document.addEventListener('click', () => {
-        navMenu.classList.remove("show");
-        langDropdown.classList.remove("open");
-    });
-
-</script>
-
-<body>
 <!--    <img src="photos/prague_background.jpg" class="background_photo" alt="Nothing">-->
 
     <div class="container">
         <section id="profile" class="section">
-            <h3 data-translate="profile.header"></h3>
+
             <div class="card-pack">
+                <h3 data-translate="profile.header"></h3>
                 <div id=profile_photo_card class="card profile_card">
-                    <img src="photos/profile_small_nobg.png" alt="Profile" class="profile_photo"/>
+                    <img src="photos/sxuddqsrsxzkgbrhkxeo.avif" alt="Profile" class="profile_photo" width="320" height="480" decoding="async" fetchpriority="high">
                     <!-- Rounded rectangle label -->
                     <div class="label label-rect" data-depth="0.1" data-translate="profile.tag">
 
@@ -118,7 +79,7 @@
                     </div>
                     <!-- Pentagon label -->
                     <div class="label label-pentagon" data-depth="0.2">
-                        <img class="label jet" src="photos/jet.png" alt="jet">
+<!--                        <img class="label jet" src="photos/jet.png" alt="jet">-->
                     </div>
 
                     <div class="label label-pentagon2" data-depth="0.3">
@@ -133,7 +94,23 @@
                     <p data-translate="profile.content4" id="profile_text_card4"></p>
                 </div>
 
-                <h3>Tech stack</h3>
+                <h3 data-translate="profile.servicesHeader"></h3>
+                <div class="card" id="service1">
+                    <h4 data-translate="profile.service1Title"></h4>
+                    <p data-translate="profile.service1Text" id="servicet1"></p>
+                </div>
+
+                <div class="card" id="service2">
+                    <h4 data-translate="profile.service2Title"></h4>
+                    <p data-translate="profile.service2Text" id="servicet2"></p>
+                </div>
+
+                <div class="card" id="service3">
+                    <h4 data-translate="profile.service3Title"></h4>
+                    <p data-translate="profile.service3Text" id="servicet3"></p>
+                </div>
+
+                <h3 data-translate="profile.techHeader"></h3>
                 <div class="card">
                     <div class="circle-scene" id="circleScene">
                         <div class="circle-item" data-depth="0.1">
@@ -171,7 +148,7 @@
                 </div>
 
                 <div class="card">
-                    <p data-translate="profile.content5"> content</p>
+                    <p data-translate="profile.content5"></p>
                 </div>
 
                 <h3 data-translate="profile.header2"></h3>
@@ -236,13 +213,13 @@
         </section>
 
         <section id="journey" class="section">
-            <h2 data-translate="journey.header">Cesta</h2>
+            <h2 data-translate="journey.header"></h2>
 
             <div class="timeline">
                     <div class="timeline-axis"></div>
                     <div class="timeline-item right">
                         <div class="timeline-image hover-lift">
-                            <img alt="WhatsApp" src="photos/sydney.jpg" class="timeline_photo">
+                            <img alt="Skyline Sydney" src="photos/kiq4cbofu5lmkb41is2z.avif" class="timeline_photo" width="520" height="347" loading="lazy" decoding="async">
                         </div>
 
                         <div class="timeline-text">
@@ -263,13 +240,13 @@
                         </div>
 
                         <div class="timeline-image hover-lift">
-                            <img alt="WhatsApp" src="photos/sydney.jpg" class="timeline_photo">
+                            <img alt="Skyline Sydney" src="photos/kiq4cbofu5lmkb41is2z.avif" class="timeline_photo" width="520" height="347" loading="lazy" decoding="async">
                         </div>
                     </div>
 
                     <div class="timeline-item right">
                         <div class="timeline-image hover-lift">
-                            <img alt="WhatsApp" src="photos/nomad2.jpg" class="timeline_photo">
+                            <img alt="Digitální nomád na cestách" src="photos/ocyfxm7cpjkb2tdq73cg.avif" class="timeline_photo" width="520" height="347" loading="lazy" decoding="async">
                         </div>
 
                         <div class="timeline-text">
@@ -292,7 +269,7 @@
                         </div>
 
                         <div class="timeline-image hover-lift">
-                            <img alt="WhatsApp" src="photos/staz.jpg" class="timeline_photo">
+                            <img alt="Začátky profesní cesty" src="photos/jvdjujj83iono0plkwoz.avif" class="timeline_photo" width="520" height="347" loading="lazy" decoding="async">
                         </div>
                     </div>
             </div>
@@ -302,12 +279,12 @@
             <canvas id="cellCanvas" class="canvas"></canvas>
             <div class="behind_canvas">
                 <h2 data-translate="etymology.header"></h2>
-                <p id=emycontent" data-translate="etymology.content"></p>
+                <p id="emycontent" data-translate="etymology.content"></p>
             </div>
         </section>
 
         <section id="contact" class="section">
-            <h2 data-translate="contact.header">Kontakt</h2>
+            <h2 data-translate="contact.header"></h2>
             <p data-translate="contact.content"></p>
             <div class="contact-options">
                 <a class="jump" href="https://wa.me/420721903790" target="_blank"><img alt="WhatsApp" src="flags/whatsapp.png" class="network"></a>
@@ -317,197 +294,12 @@
         </section>
 
     </div>
-    <script>
-        document.getElementById("emycontent").textContent =
-            translations.welcome;
-
-
-    </script>
-    <script>
-
-        const elements = document.querySelectorAll(".jump");
-
-        elements.forEach(el => {
-            el.addEventListener("mouseenter", () => {
-                el.classList.add("animate");
-
-                // remove after animation so it can repeat
-                setTimeout(() => {
-                    el.classList.remove("animate");
-                }, 400);
-            });
-        });
-
-    </script>
-    <script>
-        const faders = document.querySelectorAll('.timeline-item,circle, h2, h3 , p, .jump, .profile_card');
-        const appearOnScroll = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                });
-            },
-            {
-                rootMargin: '-120px 0px -20% 0px',
-                threshold: 0
-            }
-        );
-
-        faders.forEach(el => {
-            el.classList.add('fade-in-target');
-            appearOnScroll.observe(el);
-        });
-    </script>
-
-    <script>
-        document.querySelectorAll('.scroll, .monogram').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href'))
-                    .scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
-
-    <script>
-        document.querySelectorAll(".ripple").forEach(btn => {
-            btn.addEventListener("mouseenter", function(e) {
-                const circle = document.createElement("span");
-                const rect = btn.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                circle.style.width = circle.style.height = size + "px";
-                circle.style.left = e.clientX - rect.left - size / 2 + "px";
-                circle.style.top = e.clientY - rect.top - size / 2 + "px";
-                btn.appendChild(circle);
-                setTimeout(() => circle.remove(), 600);
-            });
-        });
-    </script>
-
-    <script>
-        function toclipboard() {
-            // Get the text field
-            var copyText = document.getElementById("krystof.brzak@gmail.com");
-
-            // Select the text field
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // For mobile devices
-
-            // Copy the text inside the text field
-            navigator.clipboard.writeText(copyText.value);
-
-            // Alert the copied text
-            alert("Copied the text: " + copyText.value);
-        }
-    </script>
-
     <footer class="footer">
         <p data-translate="footer"></p>
     </footer>
 
-    <!-- Load language -->
-    <script src="javascripts.js"></script>
-    <script src="life_simulator.js"></script>
-
-<script>
-    const scene = document.querySelectorAll('.traits, .circle-scene');
-    const layers = document.querySelectorAll('.trait-labels, .circle-item');
-
-    scene.addEventListener('mousemove', (e) => {
-        const rect = scene.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const moveX = (x - centerX) / centerX;
-        const moveY = (y - centerY) / centerY;
-
-        layers.forEach(layer => {
-            const depth = layer.dataset.depth;
-            const translateX = -moveX * depth * 30;
-            const translateY = -moveY * depth * 30;
-
-            layer.style.transform = `
-            translate(-50%, -50%)
-            translate(${translateX}px, ${translateY}px)`;
-
-            scene.style.transform = `
-            rotateX(${moveY * 15}deg)
-            rotateY(${moveX * 15}deg)
-        `;
-        });
-    });
-</script>
-
-<script>
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav a');
-
-    const observer = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-
-                    navLinks.forEach(link => {
-                        link.classList.toggle(
-                            'active',
-                            link.getAttribute('href') === `#${id}`
-                        );
-                    });
-                }
-            });
-        },
-        {
-            /*threshold: 0.6  kolik sekce musí být vidět */
-            rootMargin: "-100px 0px -40% 0px",
-            threshold: 0
-        }
-    );
-
-    sections.forEach(section => observer.observe(section));
-</script>
-
-
-<script>
-    function updateCircleLayout() {
-        const container = document.getElementById('circleScene');
-        const items = container.querySelectorAll('.circle-item');
-        const count = items.length;
-
-        const width = container.offsetWidth;
-        const height = container.offsetHeight;
-
-        const centerX = width / 2;
-        const centerY = height / 2;
-
-        // radius necháme s paddingem od kraje
-        const radius = Math.min(width, height) / 2 - 10;
-
-        items.forEach((item, i) => {
-            const angle = (i / count) * (2 * Math.PI) - (Math.PI / 2);
-
-            const x = centerX + radius * Math.cos(angle);
-            const y = centerY + radius * Math.sin(angle);
-
-            item.style.left = `${x}px`;
-            item.style.top = `${y}px`;
-        });
-    }
-
-    window.addEventListener('DOMContentLoaded', updateCircleLayout);
-    window.addEventListener('resize', updateCircleLayout);
-
-</script>
-
-
-
-
-
+    <script src="i18n.js" defer></script>
+    <script src="site-ui.js" defer></script>
+    <script src="life_simulator.js" defer></script>
 </body>
 </html>

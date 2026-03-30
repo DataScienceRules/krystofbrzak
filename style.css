@@ -317,7 +317,7 @@ img {
     /* Card pack layout */
     .card-pack {
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 4rem;
         width: 100%;
         max-width: 1200px;
@@ -369,6 +369,38 @@ img {
 
     .card-pack > .card:has(.circle-scene) {
         grid-column: 1 / -1;
+    }
+
+    #service1,
+    #service2,
+    #service3 {
+        min-height: 180px;
+        padding: 1.4rem 1.5rem;
+        border: 1px solid rgba(255, 208, 168, 0.75);
+        border-radius: 22px;
+        justify-content: center;
+        background: rgba(2, 59, 66, 0.35);
+        box-shadow: inset 0 0 0 1px rgba(255, 245, 217, 0.06);
+    }
+
+    #service1 h4,
+    #service2 h4,
+    #service3 h4 {
+        margin: 0;
+        color: #ffd0a8;
+        font-size: 1.1rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+    }
+
+    #service1 p,
+    #service2 p,
+    #service3 p {
+        margin: 0;
+        max-width: none;
+        color: #FFF5D9;
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
 
@@ -951,7 +983,7 @@ img {
         display: grid;
         /*grid-template-columns: 20% 80%;*/
         gap: 4rem;
-        width: 90%;
+        width: 100%;
         align-items: stretch;
         margin: auto;
     }
