@@ -4,12 +4,24 @@
     <loc>https://neoprotero.com/</loc>
   </url>
   <url>
-    <loc>https://neoprotero.com/cs</loc>
+    <loc>https://neoprotero.com/?lang=cs</loc>
   </url>
   <url>
-    <loc>https://neoprotero.com/en</loc>
+    <loc>https://neoprotero.com/?lang=en</loc>
   </url>
   <url>
-    <loc>https://neoprotero.com/de</loc>
+    <loc>https://neoprotero.com/?lang=de</loc>
+  </url>
+  <url>
+    <loc>https://neoprotero.com/blog.html</loc>
+  </url>
+  <url>
+    <loc>https://neoprotero.com/blog.html?lang=cs</loc>
+  </url>
+  <url>
+    <loc>https://neoprotero.com/blog.html?lang=en</loc>
+  </url>
+  <url>
+    <loc>https://neoprotero.com/blog.html?lang=de</loc>
   </url>
 </urlset>

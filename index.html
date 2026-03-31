@@ -10,16 +10,51 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="canonical" id="canonical-link" href="https://neoprotero.com/cs">
+    <link rel="canonical" id="canonical-link" href="https://neoprotero.com/?lang=cs">
+    <link rel="prefetch" href="blog.html?lang=cs" data-lang-prefetch="blog.html">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Neoprotero">
     <meta property="og:locale" content="cs_CZ">
     <meta property="og:title" content="Kryštof Brzák | Projektové vedení, vývoj systémů a delivery">
     <meta property="og:description" content="Projektové vedení, týmová koordinace a technický přesah. Osobní web Kryštofa Brzáka.">
-    <meta property="og:url" content="https://neoprotero.com/cs">
+    <meta property="og:url" content="https://neoprotero.com/?lang=cs">
     <meta property="og:image" content="https://neoprotero.com/photos/profile.jpg">
     <meta property="og:image:alt" content="Kryštof Brzák">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://neoprotero.com/#person",
+            "name": "Kryštof Brzák",
+            "url": "https://neoprotero.com/",
+            "image": "https://neoprotero.com/photos/profile.jpg",
+            "jobTitle": "Project Manager",
+            "description": "Project leadership, team coordination, and custom systems delivery.",
+            "email": "mailto:krystof.brzak@gmail.com",
+            "sameAs": [
+                "https://www.linkedin.com/in/krystof-brzak"
+            ],
+            "knowsAbout": [
+                "Project management",
+                "Delivery management",
+                "Software development",
+                "Web development",
+                "Python",
+                "SQL",
+                "REST API",
+                "DevOps",
+                "Power BI",
+                "LLMs",
+                "Claude",
+                "Codex",
+                "Vibe coding",
+                "3D printing",
+                "Telematics",
+                "Concept art"
+            ]
+        }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.4/pixi.min.js" defer></script>
 
@@ -42,7 +77,7 @@
     <nav id="nav-menu" class="nav">
         <a href="#profile" class="scroll" data-translate="menu.profile"></a>
         <a href="#journey" class="scroll" data-translate="menu.journey"></a>
-        <a href="#etymology" class="scroll" data-translate="menu.etymology"></a>
+        <a href="blog.html?lang=cs" class="scroll" data-lang-href="blog.html" data-translate="menu.etymology"></a>
         <a href="#contact" class="scroll" data-translate="menu.contact"></a>
         <div class="lang-dropdown">
             <div class="selected-lang">
@@ -65,9 +100,8 @@
 
     <div class="container">
         <section id="profile" class="section">
-
+            <h1 data-translate="profile.name"></h1>
             <div class="card-pack">
-                <h3 data-translate="profile.header"></h3>
                 <div id=profile_photo_card class="card profile_card">
                     <img src="photos/sxuddqsrsxzkgbrhkxeo.avif" alt="Profile" class="profile_photo" width="320" height="480" decoding="async" fetchpriority="high">
                     <!-- Rounded rectangle label -->
@@ -110,6 +144,11 @@
                     <p data-translate="profile.service3Text" id="servicet3"></p>
                 </div>
 
+                <div class="card" id="service4">
+                    <h4 data-translate="profile.service4Title"></h4>
+                    <p data-translate="profile.service4Text" id="servicet4"></p>
+                </div>
+
                 <h3 data-translate="profile.techHeader"></h3>
                 <div class="card">
                     <div class="circle-scene" id="circleScene">
@@ -147,11 +186,8 @@
 
                 </div>
 
-                <div class="card">
-                    <p data-translate="profile.content5"></p>
-                </div>
-
-                <h3 data-translate="profile.header2"></h3>
+                <h3 data-translate="profile.projectsHeader"></h3>
+                <!--
                 <div id="traits" class="card traits">
                     <div class="trait" data-depth="0.1">
                         <div class="trait-labels"  style="--left-weight: 600;
@@ -205,10 +241,47 @@
                         </div>
                     </div>
                 </div>
+                -->
 
-                <div class="card">
-                    <p data-translate="profile.content6"></p>
+                <div class="card" id="project1">
+<!--                    <img src="flags/toyboy.png" alt="Project icon" class="project-icon">-->
+                    <h4 data-translate="profile.project1Title"></h4>
+                    <p data-translate="profile.project1Text"></p>
                 </div>
+
+                <div class="card" id="project2">
+                    <img src="flags/bezbalogo-circle.png" alt="Project icon" class="project-icon">
+                    <h4 data-translate="profile.project2Title"></h4>
+                    <p data-translate="profile.project2Text"></p>
+                </div>
+
+                <div class="card" id="project3">
+<!--                    <img src="flags/icons8-chatgpt-50_2x.png" alt="Project icon" class="project-icon">-->
+                    <h4 data-translate="profile.project3Title"></h4>
+                    <p data-translate="profile.project3Text"></p>
+                </div>
+
+                <div class="card" id="project4">
+<!--                    <img src="flags/icons8-chatgpt-50_2x.png" alt="Project icon" class="project-icon">-->
+                    <h4 data-translate="profile.project4Title"></h4>
+                    <p data-translate="profile.project4Text"></p>
+                </div>
+
+                <div class="card" id="project5">
+<!--                    <img src="flags/IDC-logo-2022-circle.png" alt="Project icon" class="project-icon">-->
+                    <h4 data-translate="profile.project5Title"></h4>
+                    <p data-translate="profile.project5Text"></p>
+                </div>
+
+                <div class="card" id="project6">
+                    <img src="flags/01-skoda-logo-picturemark-icon-transparent.png" alt="Project icon" class="project-icon">
+                    <h4 data-translate="profile.project6Title"></h4>
+                    <p data-translate="profile.project6Text"></p>
+                </div>
+
+<!--                <div class="card">-->
+<!--                    <p data-translate="profile.content6"></p>-->
+<!--                </div>-->
             </div>
         </section>
 
@@ -275,6 +348,7 @@
             </div>
         </section>
 
+        <!--
         <section id="etymology" class="canv_section">
             <canvas id="cellCanvas" class="canvas"></canvas>
             <div class="behind_canvas">
@@ -282,6 +356,7 @@
                 <p id="emycontent" data-translate="etymology.content"></p>
             </div>
         </section>
+        -->
 
         <section id="contact" class="section">
             <h2 data-translate="contact.header"></h2>

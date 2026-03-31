@@ -3,30 +3,21 @@
     const DEFAULT_LANG = "en";
 
     /**
-     * Read the current language from the last URL segment, e.g. /cs.
+     * Read the current language from the lang query parameter, e.g. ?lang=cs.
      */
     function getLangFromUrl() {
-        const segments = window.location.pathname.split("/").filter(Boolean);
-        const lang = segments[segments.length - 1];
+        const url = new URL(window.location.href);
+        const lang = url.searchParams.get("lang");
 
         return lang && translations[lang] ? lang : null;
     }
 
     /**
-     * Keep the language-specific URL in sync with the selected locale.
+     * Keep the language-specific query parameter in sync with the selected locale.
      */
     function updateUrlForLanguage(lang) {
         const url = new URL(window.location.href);
-        const segments = url.pathname.split("/").filter(Boolean);
-        const lastSegment = segments[segments.length - 1];
-
-        if (translations[lastSegment]) {
-            segments.pop();
-        }
-
-        segments.push(lang);
-        url.pathname = "/" + segments.join("/");
-        url.search = "";
+        url.searchParams.set("lang", lang);
         window.history.replaceState({}, "", url);
         updateCanonical(url);
     }
@@ -36,9 +27,10 @@
      */
     function updateCanonical(url = new URL(window.location.href)) {
         const canonical = document.getElementById("canonical-link");
+        const lang = url.searchParams.get("lang") || detectLanguage();
 
         if (canonical) {
-            canonical.href = url.origin + url.pathname;
+            canonical.href = `${url.origin}${url.pathname}?lang=${lang}`;
         }
     }
 
@@ -72,6 +64,43 @@
     }
 
     /**
+     * Keep internal cross-page links aligned with the currently selected language.
+     */
+    function updateLocalizedLinks(lang) {
+        document.querySelectorAll("[data-lang-href]").forEach((element) => {
+            const rawTarget = element.dataset.langHref;
+
+            if (!rawTarget) {
+                return;
+            }
+
+            const [path, hash = ""] = rawTarget.split("#");
+            const targetUrl = new URL(path || window.location.pathname, window.location.href);
+
+            targetUrl.searchParams.set("lang", lang);
+            targetUrl.hash = hash ? `#${hash}` : "";
+            element.href = `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`;
+        });
+    }
+
+    /**
+     * Keep document prefetch hints aligned with the active language.
+     */
+    function updatePrefetchLinks(lang) {
+        document.querySelectorAll("link[data-lang-prefetch]").forEach((element) => {
+            const rawTarget = element.dataset.langPrefetch;
+
+            if (!rawTarget) {
+                return;
+            }
+
+            const targetUrl = new URL(rawTarget, window.location.href);
+            targetUrl.searchParams.set("lang", lang);
+            element.href = `${targetUrl.pathname}${targetUrl.search}`;
+        });
+    }
+
+    /**
      * Reflect the currently active language in the visible flag selector.
      */
     function updateSelectedFlag(lang) {
@@ -96,6 +125,8 @@
         }
 
         applyTranslations(lang);
+        updateLocalizedLinks(lang);
+        updatePrefetchLinks(lang);
         localStorage.setItem("lang", lang);
         updateSelectedFlag(lang);
         updateUrlForLanguage(lang);

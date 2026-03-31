@@ -1,9 +1,15 @@
 (function initLifeSimulator() {
+    const canvasElement = document.getElementById("cellCanvas");
+
+    if (!canvasElement || typeof PIXI === "undefined") {
+        return;
+    }
+
     // ==========================
     // PIXI SETUP
     // ==========================
     const app = new PIXI.Application({
-        view: document.getElementById("cellCanvas"),
+        view: canvasElement,
         resizeTo: window,
         backgroundAlpha: 0,
         antialias: true

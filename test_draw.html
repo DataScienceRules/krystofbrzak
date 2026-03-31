@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablet Drawing Record & Replay</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            cursor: crosshair;
+        }
+
+        button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<button id="play">Přehrát</button>
+<canvas id="canvas"></canvas>
+
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const btn = document.getElementById("play");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let drawing = false;
+    let strokes = [];
+    let currentStroke = [];
+
+    canvas.addEventListener("pointerdown", e => {
+        drawing = true;
+        currentStroke = [];
+    });
+
+    canvas.addEventListener("pointermove", e => {
+        if (!drawing) return;
+
+        const rect = canvas.getBoundingClientRect();
+        const point = {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+            pressure: e.pressure || 1,
+            time: performance.now()
+        };
+
+        currentStroke.push(point);
+
+        drawPoint(point);
+    });
+
+    canvas.addEventListener("pointerup", () => {
+        drawing = false;
+        strokes.push(currentStroke);
+    });
+
+    function drawPoint(p) {
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2 + p.pressure * 2, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    btn.onclick = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        let i = 0;
+
+        function playStroke() {
+            if (i >= strokes.length) return;
+
+            let stroke = strokes[i];
+            let j = 0;
+
+            function drawNext() {
+                if (j >= stroke.length) {
+                    i++;
+                    playStroke();
+                    return;
+                }
+
+                drawPoint(stroke[j]);
+                j++;
+
+                requestAnimationFrame(drawNext);
+            }
+
+            drawNext();
+        }
+
+        playStroke();
+    };
+</script>
+
+</body>
+</html>

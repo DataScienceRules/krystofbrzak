@@ -20,6 +20,21 @@ html {
 
 body{
     padding-top: 50px;
+    animation: pageFadeIn 0.22s ease;
+    transition: opacity 0.18s ease;
+}
+
+body.page-transition-out {
+    opacity: 0;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 h2 {
@@ -239,6 +254,17 @@ img {
 
     }
 
+    .section h1 {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto 1.5rem;
+        text-align: center;
+        color: #ffd0a8;
+        font-size: 3rem;
+        line-height: 1.1;
+        letter-spacing: 0.03em;
+    }
+
     .canv_section h2 {
         font-size: 2rem;
         margin-bottom: 1rem;
@@ -371,9 +397,51 @@ img {
         grid-column: 1 / -1;
     }
 
+    .blog-page .card-pack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+    }
+
+    .blog-page .card-pack > h2,
+    .blog-page .card-pack > .card:first-of-type {
+        grid-column: 1 / -1;
+    }
+
+    .blog-page .card {
+        min-height: 220px;
+        padding: 1.8rem;
+        border: 1px solid rgba(255, 208, 168, 0.75);
+        border-radius: 22px;
+        background: rgba(2, 59, 66, 0.35);
+        box-shadow: inset 0 0 0 1px rgba(255, 245, 217, 0.06);
+        justify-content: flex-start;
+    }
+
+    .blog-page .card h3 {
+        margin: 0;
+        color: #ffd0a8;
+        font-size: 1.1rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+    }
+
+    .blog-page .card p {
+        margin: 0;
+        max-width: none;
+        line-height: 1.7;
+    }
+
     #service1,
     #service2,
-    #service3 {
+    #service3,
+    #service4,
+    #project1,
+    #project2,
+    #project3,
+    #project4,
+    #project5,
+    #project6 {
+        position: relative;
         min-height: 180px;
         padding: 1.4rem 1.5rem;
         border: 1px solid rgba(255, 208, 168, 0.75);
@@ -381,11 +449,32 @@ img {
         justify-content: center;
         background: rgba(2, 59, 66, 0.35);
         box-shadow: inset 0 0 0 1px rgba(255, 245, 217, 0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #service1:hover,
+    #service2:hover,
+    #service3:hover,
+    #service4:hover,
+    #project1:hover,
+    #project2:hover,
+    #project3:hover,
+    #project4:hover,
+    #project5:hover,
+    #project6:hover {
+        transform: translateY(-10px);
     }
 
     #service1 h4,
     #service2 h4,
-    #service3 h4 {
+    #service3 h4,
+    #service4 h4,
+    #project1 h4,
+    #project2 h4,
+    #project3 h4,
+    #project4 h4,
+    #project5 h4,
+    #project6 h4 {
         margin: 0;
         color: #ffd0a8;
         font-size: 1.1rem;
@@ -395,12 +484,47 @@ img {
 
     #service1 p,
     #service2 p,
-    #service3 p {
+    #service3 p,
+    #service4 p,
+    #project1 p,
+    #project2 p,
+    #project3 p,
+    #project4 p,
+    #project5 p,
+    #project6 p {
         margin: 0;
         max-width: none;
         color: #FFF5D9;
         font-size: 1rem;
         line-height: 1.5;
+    }
+
+    #project1,
+    #project2,
+    #project3,
+    #project4,
+    #project5,
+    #project6 {
+        padding-right: 1.5rem;
+    }
+
+    .project-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 56px;
+        height: 56px;
+        object-fit: contain;
+        opacity: 0.9;
+    }
+
+    #project1 h4,
+    #project2 h4,
+    #project3 h4,
+    #project4 h4,
+    #project5 h4,
+    #project6 h4 {
+        max-width: calc(100% - 4.5rem);
     }
 
 
@@ -431,6 +555,31 @@ img {
 
     .circle-item:hover {
         transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    .blog-page .card-pack {
+        gap: 1.5rem;
+    }
+
+    .blog-page .card {
+        padding: 1.25rem;
+        border: 1px solid rgba(255, 208, 168, 0.75);
+        border-radius: 22px;
+        background: rgba(2, 59, 66, 0.35);
+        box-shadow: inset 0 0 0 1px rgba(255, 245, 217, 0.06);
+    }
+
+    .blog-page .card h3 {
+        margin: 0;
+        color: #ffd0a8;
+        font-size: 1.1rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+    }
+
+    .blog-page .card p {
+        margin: 0;
+        line-height: 1.6;
     }
 
     .circle-item img {
@@ -488,6 +637,7 @@ img {
         color: #023b42;
         font-size: 170%;
         font-weight: bold;
+        min-height: 70px;
     }
 
     /* Background rectangle */
@@ -873,6 +1023,15 @@ img {
 
         margin-bottom: 1rem;
 
+    }
+
+    .section h1 {
+        margin: 0 0 1rem;
+        text-align: center;
+        color: #ffd0a8;
+        font-size: 2rem;
+        line-height: 1.1;
+        letter-spacing: 0.02em;
     }
 
     .section h3 {
