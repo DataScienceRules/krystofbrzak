@@ -1,4 +1,6 @@
-# personal web repo
+# Kryštof Brzák
+
+personal web repo
 
 Jsem projektový manažer a business analytik specializující se na vývoj softwaru na míru, s pevným technickým základem v
 oblasti datového inženýrství. Nejlépe se uplatňuji v dynamickém a rychle se měnícím prostředí, kde je potřeba pružně
