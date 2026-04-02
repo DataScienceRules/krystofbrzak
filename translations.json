@@ -83,7 +83,7 @@
     },
     "etymology": {
       "header": "Etymologie",
-      "content": "Proč Neoprotero? Máte rádi příběhy (ze) života?\n\nNeoproterozoikum označuje dlouhé období evoluce. Během Neoproterozoika se život začal přeskupovat a vyvinuly se první mnohobuněčné organismy. Změny na Zemi byly dalekosáhlé a mnoho starších kmenů organismů čelilo vyhynutí.\n\nPřipomíná nám, jak svět se neustále mění a my se měníme s ním."
+      "content": "Proč Kryštof Brzák? Máte rádi příběhy ze života?\n\nTenhle web stojí na zkušenostech nasbíraných mezi projektovým řízením, vývojem systémů, cestováním a prací s lidmi v různých oborech. Každá etapa přinesla jiný pohled na to, jak přetavit nápad do fungujícího řešení.\n\nPřipomíná mi to, že svět se neustále mění a že nejzajímavější práce vzniká tam, kde se dokážeme měnit s ním."
     },
     "contact": {
       "header": "Kontakt",
@@ -109,7 +109,8 @@
       "card3Text": "Notes on MVPs, process design, API integrations, and building solutions beyond the first version."
     },
     "profile": {
-      "header": "Hi, you just landed on Kryštof's project manager site",
+      "name": "Kryštof Brzák",
+      "header": "Hi, you just landed on Kryštof Brzák's website",
       "servicesHeader": "Services",
       "techHeader": "Tech stack",
       "projectsHeader": "Projects",
@@ -118,24 +119,26 @@
       "content2": "Leading teams toward successful outcomes",
       "content3": "Building systems from scratch",
       "content4": "Engineer • Manager • Leader",
-      "service1Title": "Project delivery",
-      "service1Text": "From brief to a clear plan, priorities, and execution.",
-      "service2Title": "Team coordination",
-      "service2Text": "I connect business, engineering, and operations into one working whole.",
+      "service1Title": "Project leadership",
+      "service1Text": "From assignment to outcome. Agile implementation of requirements in a fast-changing environment.",
+      "service2Title": "AI implementation",
+      "service2Text": "Accelerating business processes, development, and data work with large language models.",
       "service3Title": "Technical overlap",
-      "service3Text": "I help shape systems, processes, and meaningful MVPs.",
-      "project1Title": "Internal delivery dashboard",
-      "project1Text": "A shared view for priorities, capacity, and delivery status across the team.",
-      "project2Title": "MVP for a new digital product",
-      "project2Text": "Scope design, development coordination, and delivery of the first usable version.",
-      "project3Title": "External API integration",
-      "project3Text": "Connecting systems, mapping data, and setting up a reliable information flow.",
-      "project4Title": "BI reporting layer",
-      "project4Text": "Dashboards and reports for faster decisions across operational and business data.",
-      "project5Title": "Delivery process review",
-      "project5Text": "Simplifying workflow, responsibilities, and communication between business and engineering.",
-      "project6Title": "Technical discovery sprint",
-      "project6Text": "A fast validation of architecture, risks, and a realistic plan for the next project phase."
+      "service3Text": "IT education and a developer background.",
+      "service4Title": "Diplomacy",
+      "service4Text": "Complex negotiations with a wide range of clients.",
+      "project1Title": "ToyBoy",
+      "project1Text": "An innovative project in 3D printing. A complete e-commerce solution with custom toys for adults.",
+      "project2Title": "Bezba Transport",
+      "project2Text": "Takeover of a fleet management and trip-planning system. Implementation of a telecommunications switchboard.",
+      "project3Title": "Langard CRM",
+      "project3Text": "A custom CRM system for Langard.",
+      "project4Title": "Vilirio",
+      "project4Text": "A platform with gamification features for managing a portfolio of collectible items.",
+      "project5Title": "Wallet - Tech spend by Vendor",
+      "project5Text": "A greenfield data product for IDC. A combination of many data sources to create a unique view of the global market.",
+      "project6Title": "Telematics data analysis",
+      "project6Text": "An algorithm for detecting and evaluating driving style based on telematics data from ŠKODA Auto a.s. Supporting risk management."
     },
     "tech": {
       "gpt": "Language models and vibe coding",
@@ -171,7 +174,7 @@
     },
     "etymology": {
       "header": "Etymology",
-      "content": "Why Neoprotero? Do you like stories from life?\n\nThe Neoproterozoic marks a long period of evolution. During this era, life began to reorganize and the first multicellular organisms emerged. Changes on Earth were profound, and many older branches of life faced extinction.\n\nIt reminds us that the world is constantly changing and that we are changing with it."
+      "content": "Why Kryštof Brzák? Do you like real-life stories?\n\nThis website is built on experience gathered across project management, systems development, travel, and working with people from very different fields. Each stage brought a different perspective on how to turn an idea into a working solution.\n\nIt reminds me that the world is constantly changing and that the most interesting work happens when we are able to change with it."
     },
     "contact": {
       "header": "Contact",
@@ -197,7 +200,8 @@
       "card3Text": "Notizen zu MVPs, Prozessdesign, API-Integrationen und dem Aufbau von Lösungen über die erste Version hinaus."
     },
     "profile": {
-      "header": "Hallo, Sie sind auf der Website des Projektmanagers Kryštof gelandet",
+      "name": "Kryštof Brzák",
+      "header": "Hallo, Sie sind auf der Website von Kryštof Brzák gelandet",
       "servicesHeader": "Leistungen",
       "techHeader": "Technologie-Stack",
       "projectsHeader": "Projekte",
@@ -207,23 +211,25 @@
       "content3": "Ich entwickle Systeme auf der grünen Wiese",
       "content4": "Ingenieur • Manager • Leader",
       "service1Title": "Projektleitung",
-      "service1Text": "Vom Briefing zu einem klaren Plan, Prioritäten und Lieferung.",
-      "service2Title": "Teamkoordination",
-      "service2Text": "Ich verbinde Business, Entwicklung und Betrieb zu einem funktionierenden Ganzen.",
-      "service3Title": "Technischer Überblick",
-      "service3Text": "Ich helfe bei Systemen, Prozessen und sinnvollen MVPs.",
-      "project1Title": "Internes Delivery-Dashboard",
-      "project1Text": "Ein gemeinsamer Überblick über Prioritäten, Kapazitäten und Lieferstatus im Team.",
-      "project2Title": "MVP für ein neues digitales Produkt",
-      "project2Text": "Scope-Definition, Entwicklungskoordination und Lieferung der ersten nutzbaren Version.",
-      "project3Title": "Integration eines externen API",
-      "project3Text": "Verbindung von Systemen, Datenmapping und Aufbau eines verlässlichen Informationsflusses.",
-      "project4Title": "BI-Reporting-Schicht",
-      "project4Text": "Dashboards und Reports für schnellere Entscheidungen auf Basis operativer und geschäftlicher Daten.",
-      "project5Title": "Review der Delivery-Prozesse",
-      "project5Text": "Vereinfachung von Workflow, Verantwortlichkeiten und Kommunikation zwischen Business und Entwicklung.",
-      "project6Title": "Technischer Discovery-Sprint",
-      "project6Text": "Schnelle Validierung von Architektur, Risiken und einem realistischen Plan für die nächste Projektphase."
+      "service1Text": "Von der Aufgabenstellung bis zum Ziel. Agile Umsetzung von Anforderungen in einem sich schnell verändernden Umfeld.",
+      "service2Title": "KI-Implementierung",
+      "service2Text": "Beschleunigung von Geschäftsprozessen, Entwicklung und Datenarbeit mit großen Sprachmodellen.",
+      "service3Title": "Technischer Hintergrund",
+      "service3Text": "IT-Ausbildung und Entwickler-Background.",
+      "service4Title": "Diplomatie",
+      "service4Text": "Komplexe Verhandlungen mit unterschiedlichsten Kunden.",
+      "project1Title": "ToyBoy",
+      "project1Text": "Ein innovatives Projekt im Bereich 3D-Druck. Ein kompletter E-Shop mit maßgeschneiderten Spielzeugen für Erwachsene.",
+      "project2Title": "Bezba Doprava",
+      "project2Text": "Übernahme eines Systems zur Flottenverwaltung und Fahrtenplanung. Implementierung einer Telekommunikationszentrale.",
+      "project3Title": "Langard CRM",
+      "project3Text": "Ein maßgeschneidertes CRM-System für Langard.",
+      "project4Title": "Vilirio",
+      "project4Text": "Eine Plattform mit Gamification-Elementen zur Verwaltung eines Portfolios mit Sammlerstücken.",
+      "project5Title": "Wallet - Tech spend by Vendor",
+      "project5Text": "Ein Greenfield-Datenprodukt für IDC. Die Kombination vieler Datenquellen schafft einen einzigartigen Blick auf den globalen Markt.",
+      "project6Title": "Analyse von Telematikdaten",
+      "project6Text": "Ein Algorithmus zur Erkennung und Bewertung des Fahrstils auf Basis von Telematikdaten der ŠKODA Auto a.s. als Grundlage für das Risikomanagement."
     },
     "tech": {
       "gpt": "Sprachmodelle und Vibe Coding",
@@ -259,7 +265,7 @@
     },
     "etymology": {
       "header": "Etymologie",
-      "content": "Warum Neoprotero? Mögen Sie Geschichten aus dem Leben?\n\nDas Neoproterozoikum bezeichnet eine lange Phase der Evolution. In dieser Zeit begann sich das Leben neu zu ordnen und die ersten mehrzelligen Organismen entstanden. Die Veränderungen auf der Erde waren tiefgreifend und viele ältere Organismengruppen standen vor dem Aussterben.\n\nEs erinnert uns daran, dass sich die Welt ständig verändert und wir uns mit ihr verändern."
+      "content": "Warum Kryštof Brzák? Mögen Sie Geschichten aus dem echten Leben?\n\nDiese Website basiert auf Erfahrungen aus Projektmanagement, Systementwicklung, Reisen und der Zusammenarbeit mit Menschen aus ganz unterschiedlichen Bereichen. Jede Etappe hat einen anderen Blick darauf gebracht, wie man eine Idee in eine funktionierende Lösung verwandelt.\n\nSie erinnert mich daran, dass sich die Welt ständig verändert und die spannendste Arbeit dort entsteht, wo wir uns mit ihr weiterentwickeln können."
     },
     "contact": {
       "header": "Kontakt",
