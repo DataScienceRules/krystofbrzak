@@ -101,18 +101,24 @@
     }
 
     /**
-     * Reflect the currently active language in the visible flag selector.
+     * Reflect the currently active language in the visible language selector.
      */
     function updateSelectedFlag(lang) {
-        const selectedLangImage = document.querySelector(".selected-lang img");
+        const selectedLangLabel = document.querySelector(".selected-lang .flag");
         const activeFlag = document.querySelector(
             `.lang-options .flag[data-lang="${lang}"]`
         );
 
-        if (selectedLangImage && activeFlag) {
-            selectedLangImage.src = activeFlag.src;
-            selectedLangImage.dataset.lang = lang;
+        if (!selectedLangLabel || !activeFlag) {
+            return;
         }
+
+        selectedLangLabel.textContent = activeFlag.textContent;
+        selectedLangLabel.dataset.lang = lang;
+
+        document.querySelectorAll(".lang-options .flag").forEach((flag) => {
+            flag.classList.toggle("active", flag.dataset.lang === lang);
+        });
     }
 
     /**
