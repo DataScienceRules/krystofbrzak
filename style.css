@@ -117,6 +117,10 @@ img {
 
 
 @media (min-width: 768px) {
+    :root {
+        --section-inline-margin: clamp(3rem, 20vw, 20rem);
+    }
+
     body{
         padding-top: 100px;
     }
@@ -196,7 +200,7 @@ img {
     /* Sections */
     .section {
         padding: 2rem 1.5rem 1.5rem; /* extra top padding to compensate for fixed menu */
-        margin: 3rem 16rem 1rem;
+        margin: 3rem var(--section-inline-margin) 1rem;
         border-width: 20px;
         min-height: 30vh;
         display: block;
@@ -221,7 +225,7 @@ img {
 
     .canv_section {
         padding: 6rem 1.5rem 1.5rem; /* extra top padding to compensate for fixed menu */
-        margin: 3rem 16rem 1rem;
+        margin: 3rem var(--section-inline-margin) 1rem;
         position: relative;
         /*background-color: #023b42;*/
         border-radius: 30px;
@@ -281,40 +285,50 @@ img {
 
     /* Dropdown wrapper */
     .lang-dropdown {
-        top:100%;
-        display: block;
+        position: relative;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 2rem;
+        gap: 0.5rem;
     }
 
-    /* Selected flag */
+    /* Selected language */
     .selected-lang .flag {
-        width: 40px;
+        min-width: 52px;
         height: 40px;
         margin: 15px;
-        border-radius: 50%;
+        padding: 0 0.85rem;
+        border-radius: 999px;
         border: 2px solid #FFF5D9;
-        /*object-fit: cover;*/
+        background: transparent;
+        color: #FFF5D9;
         display: flex;
         align-items: center;
-        gap: 1rem;
+        justify-content: center;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        line-height: 1;
+        text-transform: uppercase;
     }
     .selected-lang .flag:hover {
-        transform: scale(1.5);
+        transform: scale(1.08);
     }
 
     /* Dropdown options */
     .lang-options {
         position: absolute;
-        top: 100%;
-        right: 7rem;
+        top: calc(100% + 0.35rem);
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
         background: #111;
         padding: 0.5rem;
         border-radius: 8px;
         display: none;
         flex-direction: column;
         gap: 0.4rem;
-
+        z-index: 10;
     }
 
     /* Show dropdown when parent is active */
@@ -323,17 +337,35 @@ img {
     }
 
     .lang-options .flag {
-        width: 40px;
+        min-width: 52px;
         height: 40px;
-        border-radius: 50%;
+        padding: 0 0.85rem;
+        border-radius: 999px;
         border: 2px solid #FFF5D9;
         cursor: pointer;
-        object-fit: cover;
-        transition: transform 0.2s ease;
+        background: transparent;
+        color: #FFF5D9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: inherit;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        line-height: 1;
+        text-transform: uppercase;
+        transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
     }
 
     .lang-options .flag:hover {
-        transform: scale(1.5);
+        transform: scale(1.08);
+        background: #FFF5D9;
+        color: #111;
+    }
+
+    .lang-options .flag.active {
+        background: #FFF5D9;
+        color: #111;
     }
 
     /* =========================
@@ -1049,19 +1081,26 @@ img {
         margin-left: 20px;
     }
 
-    /* Selected flag */
+    /* Selected language */
     .selected-lang .flag {
-        width: 40px;
+        min-width: 52px;
         height: 40px;
-        border-radius: 50%;
+        padding: 0 0.85rem;
+        border-radius: 999px;
         border: 2px solid #FFF5D9;
-        object-fit: cover;
+        background: transparent;
+        color: #FFF5D9;
         display: flex;
         align-items: center;
-        gap: 1rem;
+        justify-content: center;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        line-height: 1;
+        text-transform: uppercase;
     }
     .selected-lang .flag:hover {
-        transform: scale(1.5);
+        transform: scale(1.08);
     }
 
     /* Dropdown options */
@@ -1084,17 +1123,35 @@ img {
     }
 
     .lang-options .flag {
-        width: 40px;
+        min-width: 52px;
         height: 40px;
-        border-radius: 50%;
+        padding: 0 0.85rem;
+        border-radius: 999px;
         border: 2px solid #FFF5D9;
         cursor: pointer;
-        object-fit: cover;
-        transition: transform 0.2s ease;
+        background: transparent;
+        color: #FFF5D9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: inherit;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        line-height: 1;
+        text-transform: uppercase;
+        transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
     }
 
     .lang-options .flag:hover {
-        transform: scale(1.5);
+        transform: scale(1.08);
+        background: #FFF5D9;
+        color: #111;
+    }
+
+    .lang-options .flag.active {
+        background: #FFF5D9;
+        color: #111;
     }
 
 
