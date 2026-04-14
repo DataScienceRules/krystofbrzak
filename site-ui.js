@@ -12,14 +12,23 @@
             return;
         }
 
+        const syncMobileMenuState = () => {
+            document.body.classList.toggle(
+                "mobile-menu-open",
+                navMenu.classList.contains("show")
+            );
+        };
+
         const closeMenus = () => {
             navMenu.classList.remove("show");
             langDropdown.classList.remove("open");
+            syncMobileMenuState();
         };
 
         hamburger.addEventListener("click", (event) => {
             event.stopPropagation();
             navMenu.classList.toggle("show");
+            syncMobileMenuState();
         });
 
         langDropdown.addEventListener("click", (event) => {
@@ -36,6 +45,7 @@
                 }
 
                 langDropdown.classList.remove("open");
+                syncMobileMenuState();
             });
         });
 

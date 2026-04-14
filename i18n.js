@@ -1,5 +1,6 @@
 (function initI18n() {
     let translations = {};
+    let currentLanguage = null;
     const DEFAULT_LANG = "en";
 
     /**
@@ -130,12 +131,18 @@
             lang = DEFAULT_LANG;
         }
 
+        currentLanguage = lang;
         applyTranslations(lang);
         updateLocalizedLinks(lang);
         updatePrefetchLinks(lang);
         localStorage.setItem("lang", lang);
         updateSelectedFlag(lang);
         updateUrlForLanguage(lang);
+        document.dispatchEvent(
+            new CustomEvent("languagechange", {
+                detail: { lang }
+            })
+        );
     }
 
     /**
@@ -180,5 +187,8 @@
     }
 
     window.setLanguage = setLanguage;
+    window.getCurrentLanguage = function getCurrentLanguage() {
+        return currentLanguage || detectLanguage();
+    };
     document.addEventListener("DOMContentLoaded", loadTranslations);
 })();
