@@ -926,10 +926,20 @@ img {
 /* ----- --------------------------------------------- ----- */
 @media (max-width: 768px) {
 
+    :root {
+        --mobile-header-height: 64px;
+        --mobile-section-offset: 78px;
+    }
+
+    body {
+        padding-top: var(--mobile-header-height);
+    }
+
     .header {
         position: fixed;
         width: 100%;
-        padding: 0.35rem 0.9rem;
+        min-height: var(--mobile-header-height);
+        padding: 0.35rem 0.75rem;
         background: #091111;
         color: #ffd0a8;
         display: flex;
@@ -945,13 +955,16 @@ img {
     /* Hide desktop menu */
     .nav {
         position: fixed;
-        inset: 0;
+        top: var(--mobile-header-height);
+        right: 0;
+        bottom: 0;
+        left: 0;
         right: 0;
         background: #111;
         width: 100vw;
-        height: 100dvh;
+        height: calc(100dvh - var(--mobile-header-height));
         flex-direction: column;
-        padding: 2.4rem 1.5rem 1.5rem;
+        padding: 1.25rem 1.5rem 1.5rem;
         /* hidden until opened */
         transform: translateX(100%);
         transition: transform 0.3s ease;
@@ -965,26 +978,49 @@ img {
         right: 0;
         display: flex;
         width: 100vw;
-        height: 100dvh;
+        height: calc(100dvh - var(--mobile-header-height));
         transform: translateX(0);
     }
 
+    .header > .monogram-link.scroll {
+        padding: 0;
+        margin-left: 0.25rem;
+        border-radius: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
+
+    .header > .monogram-link.scroll:hover,
+    .header > .monogram-link.scroll:active,
+    .header > .monogram-link.scroll:focus,
+    .header > .monogram-link.scroll:focus-visible {
+        background: transparent;
+        color: inherit;
+        box-shadow: none;
+        outline: none;
+    }
+
     .monogram {
-        width: 24px;
-        height: 24px;
-        margin: 0px;
+        width: 36px;
+        height: 36px;
+        margin: 0;
     }
 
     /* Mobile Hamburger */
     .hamburger {
-        font-size: 1rem;
+        font-size: 1.8rem;
         line-height: 1;
-        padding: 0.2rem 0.35rem;
+        padding: 0 0.25rem 0 0;
+        margin-right: 0;
         cursor: pointer;
         color: #FFF5D9;
     }
 
-    .scroll {
+    .nav .scroll {
         padding: 20px;
         border-radius: 10px;
         display: inline-block;
@@ -1012,7 +1048,7 @@ img {
         display: block;
         text-align: center;
         z-index: 0;
-        scroll-margin-top: 70px;
+        scroll-margin-top: var(--mobile-section-offset);
 
         /*box-shadow:*/
         /*        0 1px 2px #023b42,*/
@@ -1055,7 +1091,7 @@ img {
                 #023b42,
                 transparent 120%
         );
-        scroll-margin-top: 70px;
+        scroll-margin-top: var(--mobile-section-offset);
     }
 
     .section h2 {

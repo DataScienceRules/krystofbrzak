@@ -86,7 +86,19 @@
                 }
 
                 event.preventDefault();
-                targetElement.scrollIntoView({ behavior: "smooth" });
+                const header = document.querySelector(".header");
+                const headerOffset = header ? header.offsetHeight : 0;
+                const extraOffset = window.innerWidth <= 768 ? 14 : 24;
+                const targetTop =
+                    targetElement.getBoundingClientRect().top +
+                    window.scrollY -
+                    headerOffset -
+                    extraOffset;
+
+                window.scrollTo({
+                    top: Math.max(targetTop, 0),
+                    behavior: "smooth"
+                });
             });
         });
     }
@@ -108,7 +120,7 @@
         const alignHashTarget = () => {
             const header = document.querySelector(".header");
             const headerOffset = header ? header.offsetHeight : 0;
-            const extraOffset = window.innerWidth <= 768 ? 16 : 24;
+            const extraOffset = window.innerWidth <= 768 ? 14 : 24;
             const targetTop =
                 targetElement.getBoundingClientRect().top +
                 window.scrollY -
