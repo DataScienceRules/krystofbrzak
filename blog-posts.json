@@ -23,7 +23,7 @@
       "readingTime": 5,
       "tags": ["lifestyle", "traveling"],
       "image": {
-        "src": "blog photos/3f403b4e-4316-498e-9f66-44eb41afeec1.jpg",
+        "src": "../blog photos/3f403b4e-4316-498e-9f66-44eb41afeec1.jpg",
         "alt": {
           "cs": "Fotka na koni",
           "en": "Photo on the horse",
