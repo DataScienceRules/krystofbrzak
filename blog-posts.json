@@ -1,206 +1,57 @@
 {
   "tags": {
-    "delivery": {
+    "lifestyle": {
       "labels": {
-        "cs": "Delivery",
-        "en": "Delivery",
-        "de": "Delivery"
+        "cs": "Lifestyle",
+        "en": "Lifestyle",
+        "de": "Lifestyle"
       }
     },
-    "ai": {
+    "traveling": {
       "labels": {
-        "cs": "AI workflow",
-        "en": "AI workflow",
-        "de": "AI workflow"
-      }
-    },
-    "systems": {
-      "labels": {
-        "cs": "Systemy",
-        "en": "Systems",
-        "de": "Systeme"
-      }
-    },
-    "product": {
-      "labels": {
-        "cs": "Produkt",
-        "en": "Product",
-        "de": "Produkt"
+        "cs": "Cestování",
+        "en": "Traveling",
+        "de": "Reisen"
       }
     }
+
   },
   "articles": [
     {
-      "id": "keeping-projects-moving",
-      "date": "2026-03-28",
-      "readingTime": 4,
-      "tags": ["delivery", "product"],
-      "image": {
-        "src": "blog photos/jvdjujj83iono0plkwoz.avif",
-        "alt": {
-          "cs": "Pracovní stůl s notebookem a poznámkami",
-          "en": "Desk setup with notebook and notes",
-          "de": "Schreibtisch mit Laptop und Notizen"
-        }
-      },
-      "locales": {
-        "cs": {
-          "title": "Jak udržet projekt v pohybu, i když se mění zadání",
-          "excerpt": "Pár jednoduchých pravidel, která drží delivery při zemi i ve chvíli, kdy se priority hýbou každý týden.",
-          "content": [
-            "Projekt se většinou nezpomalí kvůli jedné velké chybě. Často ho brzdí součet malých nejasností, odložených rozhodnutí a změn, které nikdo nesepsal do jedné srozumitelné verze.",
-            "Nejvíc se mi osvědčuje rytmus krátkých rozhodovacích oken. Tým ví, co se má doručit teď, co je další v pořadí a co je zatím jen nápad v backlogu. Jakmile tyto tři vrstvy splynou, začne se delivery drolit.",
-            "Stejně důležité je umět říct, co se nestihne. Dobře vedené priority nejsou seznam přání. Jsou to rozhodnutí, za která někdo nese odpovědnost a která dávají lidem klid soustředit se pořádně na jednu věc."
-          ]
-        },
-        "en": {
-          "title": "How to keep a project moving when the brief keeps changing",
-          "excerpt": "A few simple rules that keep delivery grounded even when priorities shift every week.",
-          "content": [
-            "Projects rarely slow down because of one dramatic mistake. More often they are dragged down by a pile of small uncertainties, postponed decisions, and changes that were never written down in one clear version.",
-            "What works best for me is a rhythm of short decision windows. The team knows what needs to ship now, what comes next, and what is still just an idea in the backlog. Once those layers blur together, delivery starts to fray.",
-            "It matters just as much to say what will not be done. Good priorities are not a wish list. They are decisions with ownership behind them, and they give people enough calm to do one important thing well."
-          ]
-        },
-        "de": {
-          "title": "Wie ein Projekt in Bewegung bleibt, auch wenn sich das Briefing andert",
-          "excerpt": "Ein paar einfache Regeln, die Delivery stabil halten, selbst wenn sich Prioritaten jede Woche verschieben.",
-          "content": [
-            "Projekte verlangsamen sich selten wegen eines einzigen grossen Fehlers. Meistens werden sie durch viele kleine Unklarheiten, vertagte Entscheidungen und Anderungen ohne gemeinsame Version gebremst.",
-            "Am besten funktioniert fur mich ein Rhythmus aus kurzen Entscheidungsfenstern. Das Team weiss, was jetzt geliefert werden soll, was als Nächstes kommt und was noch nur eine Idee im Backlog ist. Sobald diese Ebenen verschwimmen, leidet die Delivery.",
-            "Genauso wichtig ist es zu sagen, was nicht geschafft wird. Gute Priorisierung ist keine Wunschliste. Sie besteht aus Entscheidungen mit Verantwortung und gibt dem Team genug Ruhe, um eine wichtige Sache wirklich gut zu erledigen."
-          ]
-        }
-      }
-    },
-    {
-      "id": "where-ai-actually-helps",
-      "date": "2026-04-04",
+      "id": "costarica story",
+      "date": "2026-04-19",
       "readingTime": 5,
-      "tags": ["ai", "delivery"],
+      "tags": ["lifestyle", "traveling"],
       "image": {
-        "src": "blog photos/kiq4cbofu5lmkb41is2z.avif",
+        "src": "blog photos/3f403b4e-4316-498e-9f66-44eb41afeec1.jpg",
         "alt": {
-          "cs": "Detail pracoviště s obrazovkou a dokumenty",
-          "en": "Workstation with screen and documents",
-          "de": "Arbeitsplatz mit Bildschirm und Dokumenten"
+          "cs": "Fotka na koni",
+          "en": "Photo on the horse",
+          "de": "Foto an dem Pferd"
         }
       },
       "locales": {
         "cs": {
-          "title": "Kde AI opravdu pomáhá v každodenní práci",
-          "excerpt": "Největší přínos není v magii, ale v tom, že AI zkracuje opakované kroky a zrychluje orientaci v problému.",
+          "title": "Kostarické dobrodružství",
+          "excerpt": "Krátká povídka o přežití, houževnatosti i mladické nerozvážnosti",
           "content": [
-            "AI je nejsilnější tam, kde člověk stejně potřebuje udělat konečné rozhodnutí, ale nechce ztrácet čas prvním průzkumem. Shrnuje kontext, navrhuje varianty a pomáhá rozjet práci rychleji.",
-            "Výborně funguje při přípravě podkladů, refaktoringu menších částí kódu, návrhu testů nebo při psaní první verze technické dokumentace. Naopak slabá je tam, kde chybí přesný kontext a nikdo nekontroluje výstup.",
-            "V praxi se mi osvědčuje brát AI jako spolupracovníka na první draft, ne jako autopilota. Když má jasný cíl, hranice a zpětnou vazbu, vrací hodnotu skoro okamžitě."
-          ]
+            "TBA" ]
         },
         "en": {
-          "title": "Where AI actually helps in daily work",
-          "excerpt": "The biggest gain is not magic. It is the way AI shortens repetitive steps and speeds up orientation in a problem space.",
+          "title": "Costa Rican adventure",
+          "excerpt": "A short story about survival, persistence and youthful recklessness",
           "content": [
-            "AI is strongest where a human still needs to make the final call but does not want to lose time on the first round of exploration. It summarizes context, suggests options, and helps work start faster.",
-            "It works especially well for preparing materials, refactoring smaller pieces of code, designing tests, or drafting the first version of technical documentation. It becomes weak when the context is vague and nobody checks the output.",
-            "In practice, I treat AI as a collaborator for the first draft, not as an autopilot. When it gets a clear goal, boundaries, and feedback, the value comes back almost immediately."
-          ]
+            "TBA" ]
         },
         "de": {
-          "title": "Wo KI im Arbeitsalltag wirklich hilft",
-          "excerpt": "Der groesste Gewinn ist keine Magie, sondern die Verkurzung wiederkehrender Schritte und schnellere Orientierung im Problemraum.",
+          "title": "Abenteuer in Costa Rica",
+          "excerpt": "Eine Kurzgeschichte über Überleben, Beharrlichkeit und jugendliche Tollkühnheit",
           "content": [
-            "KI ist dort am starksten, wo ein Mensch die finale Entscheidung treffen muss, aber nicht schon beim ersten Research zu viel Zeit verlieren will. Sie fasst Kontext zusammen, macht Vorschlage und hilft schneller zu starten.",
-            "Besonders gut funktioniert sie bei der Vorbereitung von Unterlagen, beim Refactoring kleinerer Codebereiche, beim Entwurf von Tests oder bei einer ersten Version technischer Dokumentation. Schwach wird sie, wenn der Kontext unklar ist und niemand das Ergebnis prueft.",
-            "In der Praxis nutze ich KI als Partner fur den ersten Entwurf, nicht als Autopilot. Wenn Ziel, Grenzen und Feedback klar sind, liefert sie fast sofort echten Mehrwert."
-          ]
-        }
-      }
-    },
-    {
-      "id": "from-idea-to-system",
-      "date": "2026-04-09",
-      "readingTime": 6,
-      "tags": ["systems", "product"],
-      "image": {
-        "src": "blog photos/ymk90boflejztmi3ofoq.avif",
-        "alt": {
-          "cs": "Notebook s otevřeným návrhem aplikace",
-          "en": "Laptop with an app design open",
-          "de": "Laptop mit geoffnetem App-Entwurf"
-        }
-      },
-      "locales": {
-        "cs": {
-          "title": "Od nápadu k systému bez zbytečné složitosti",
-          "excerpt": "První verze nemá dokázat všechno. Má hlavně co nejrychleji potvrdit, že řešení nese reálnou hodnotu.",
-          "content": [
-            "Nejběžnější chybou greenfield projektu je snaha navrhnout všechno dopředu. Ve skutečnosti stačí přesně vědět, jaký problém má první verze vyřešit a co je jen pohodlný bonus pro později.",
-            "Dobré MVP není osekaná aplikace bez směru. Je to vědomá volba, která omezí rozsah tak, aby tým získal zpětnou vazbu dřív, než stihne vybudovat zbytečné části systému.",
-            "Jakmile se potvrdí základní tok hodnoty, teprve pak má smysl řešit robustnější integrace, širší automatizaci a detailnější vrstvy architektury. Tempo je často důležitější než pocit dokonalého návrhu."
-          ]
-        },
-        "en": {
-          "title": "From idea to system without unnecessary complexity",
-          "excerpt": "The first version does not need to prove everything. It mainly needs to confirm value as quickly as possible.",
-          "content": [
-            "The most common greenfield mistake is trying to design everything upfront. In reality, it is enough to know exactly what problem the first version should solve and what is only a convenient bonus for later.",
-            "A good MVP is not a stripped-down application with no direction. It is a conscious scope choice that helps the team get feedback before it spends time building parts of the system nobody truly needs yet.",
-            "Once the core value flow is confirmed, that is the right time to invest in stronger integrations, broader automation, and deeper architectural layers. Speed often matters more than the feeling of a perfect design."
-          ]
-        },
-        "de": {
-          "title": "Von der Idee zum System ohne unnotige Komplexitat",
-          "excerpt": "Die erste Version muss nicht alles beweisen. Sie soll vor allem moglichst schnell bestaetigen, dass die Losung echten Wert liefert.",
-          "content": [
-            "Der haufigste Fehler bei Greenfield-Projekten ist der Versuch, alles im Voraus zu entwerfen. In Wirklichkeit reicht es, genau zu wissen, welches Problem die erste Version loesen soll und was nur ein angenehmer Bonus fur spater ist.",
-            "Ein gutes MVP ist keine beschnittene Anwendung ohne Richtung. Es ist eine bewusste Scope-Entscheidung, mit der das Team fruh Feedback bekommt, bevor es unnötige Teile des Systems baut.",
-            "Sobald der zentrale Wertstrom bestaetigt ist, lohnt es sich, robustere Integrationen, breitere Automatisierung und tiefere Architekturschichten anzugehen. Geschwindigkeit ist oft wichtiger als das Gefuhl eines perfekten Designs."
-          ]
-        }
-      }
-    },
-    {
-      "id": "writing-better-technical-briefs",
-      "date": "2026-04-12",
-      "readingTime": 3,
-      "tags": ["delivery", "systems", "ai"],
-      "image": {
-        "src": "blog photos/cwgejatddgrazosgo4bb.avif",
-        "alt": {
-          "cs": "Poznámky a technické schéma na stole",
-          "en": "Notes and technical sketch on a desk",
-          "de": "Notizen und technische Skizze auf einem Tisch"
-        }
-      },
-      "locales": {
-        "cs": {
-          "title": "Jak psát zadání, se kterým se dá opravdu pracovat",
-          "excerpt": "Silné zadání není dlouhé. Je přesné, rozhodnuté a nechává minimum prostoru pro rozdílný výklad.",
-          "content": [
-            "Dobrý brief začíná problémem, ne seznamem funkcí. Když všichni rozumí tomu, proč změna vzniká, mnohem snáz se hledají rozumná technická rozhodnutí.",
-            "Pomáhá mít v jednom dokumentu cíl, omezení, nejdůležitější scénáře a jasně definovaný out-of-scope. Právě poslední část často šetří nejvíc času, protože zabraňuje tichým předpokladům.",
-            "Když je brief napsaný dobře, pomůže stejně vývoji, designu i AI nástrojům. Všechny tyto vrstvy pak pracují se stejným kontextem a nejsou závislé na dohadech."
-          ]
-        },
-        "en": {
-          "title": "How to write briefs people can actually build from",
-          "excerpt": "A strong brief is not long. It is precise, decided, and leaves little room for conflicting interpretations.",
-          "content": [
-            "A good brief starts with the problem, not a list of features. Once everyone understands why the change exists, it becomes much easier to make sensible technical decisions.",
-            "It helps to keep the goal, constraints, key scenarios, and a clear out-of-scope section in one place. That last part often saves the most time because it blocks silent assumptions before they spread.",
-            "When a brief is written well, it supports engineering, design, and AI tools equally well. All of those layers can work from the same context instead of guessing."
-          ]
-        },
-        "de": {
-          "title": "Wie man Briefings schreibt, mit denen wirklich gearbeitet werden kann",
-          "excerpt": "Ein starkes Briefing ist nicht lang. Es ist klar, entschieden und laesst wenig Raum fur widerspruchliche Interpretationen.",
-          "content": [
-            "Ein gutes Briefing beginnt mit dem Problem und nicht mit einer Feature-Liste. Wenn alle verstehen, warum die Anderung notwendig ist, lassen sich technische Entscheidungen viel leichter treffen.",
-            "Hilfreich ist ein gemeinsames Dokument mit Ziel, Grenzen, wichtigsten Szenarien und einem klaren Out-of-Scope-Bereich. Gerade dieser letzte Teil spart oft am meisten Zeit, weil er stille Annahmen stoppt.",
-            "Ein gutes Briefing hilft Entwicklung, Design und KI-Werkzeugen gleichermassen. Alle arbeiten dann mit demselben Kontext statt mit Vermutungen."
-          ]
+            "TBA" ]
         }
       }
     }
+
+
   ]
 }
