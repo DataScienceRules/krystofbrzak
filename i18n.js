@@ -2,6 +2,7 @@
     let translations = {};
     let currentLanguage = null;
     const DEFAULT_LANG = "en";
+    const TRANSLATIONS_URL = new URL("translations.json", document.currentScript.src);
 
     /**
      * Read the current language from the lang query parameter, e.g. ?lang=cs.
@@ -14,10 +15,30 @@
     }
 
     /**
+     * Strip trailing index.html from the visible URL so static routes look clean.
+     */
+    function normalizePath(pathname) {
+        return pathname.replace(/\/index\.html$/, "/");
+    }
+
+    function normalizeVisibleUrl() {
+        const url = new URL(window.location.href);
+        const normalizedPath = normalizePath(url.pathname);
+
+        if (normalizedPath === url.pathname) {
+            return;
+        }
+
+        url.pathname = normalizedPath;
+        window.history.replaceState({}, "", url);
+    }
+
+    /**
      * Keep the language-specific query parameter in sync with the selected locale.
      */
     function updateUrlForLanguage(lang) {
         const url = new URL(window.location.href);
+        url.pathname = normalizePath(url.pathname);
         url.searchParams.set("lang", lang);
         window.history.replaceState({}, "", url);
         updateCanonical(url);
@@ -31,7 +52,7 @@
         const lang = url.searchParams.get("lang") || detectLanguage();
 
         if (canonical) {
-            canonical.href = `${url.origin}${url.pathname}?lang=${lang}`;
+            canonical.href = `${url.origin}${normalizePath(url.pathname)}?lang=${lang}`;
         }
     }
 
@@ -173,7 +194,10 @@
      */
     async function loadTranslations() {
         try {
-            const response = await fetch(`translations.json?v=${Date.now()}`);
+            normalizeVisibleUrl();
+            const translationsUrl = new URL(TRANSLATIONS_URL);
+            translationsUrl.searchParams.set("v", Date.now().toString());
+            const response = await fetch(translationsUrl);
 
             if (!response.ok) {
                 throw new Error("Failed to load translations.json");

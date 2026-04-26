@@ -1,5 +1,5 @@
 (function initBlogPage() {
-    const BLOG_DATA_URL = "blog-posts.json";
+    const BLOG_DATA_URL = "../blog-posts.json";
     const BLOG_UI = {
         cs: {
             allTopics: "Všechny články",
