@@ -218,49 +218,45 @@
     function initActiveNav() {
         const sections = document.querySelectorAll("section[id]");
         const navLinks = document.querySelectorAll(".nav a");
+        const sectionLinks = Array.from(navLinks).filter((link) => {
+            const href = link.getAttribute("href");
+            return href && href.startsWith("#");
+        });
         const sectionLinkIds = new Set(
-            Array.from(navLinks)
-                .map((link) => link.getAttribute("href"))
-                .filter((href) => href && href.startsWith("#"))
-                .map((href) => href.slice(1))
+            sectionLinks.map((link) => link.getAttribute("href").slice(1))
+        );
+        const trackedSections = Array.from(sections).filter((section) =>
+            sectionLinkIds.has(section.id)
         );
 
-        if (!sections.length || !navLinks.length || !sectionLinkIds.size) {
+        if (!trackedSections.length || !sectionLinks.length) {
             return;
         }
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
+        const updateActiveLink = () => {
+            const header = document.querySelector(".header");
+            const headerOffset = header ? header.offsetHeight : 0;
+            const activationLine = headerOffset + (window.innerWidth <= 768 ? 12 : 28);
+            let activeSection = trackedSections[0];
 
-                    const activeId = entry.target.id;
+            trackedSections.forEach((section) => {
+                if (section.getBoundingClientRect().top <= activationLine) {
+                    activeSection = section;
+                }
+            });
 
-                    navLinks.forEach((link) => {
-                        const href = link.getAttribute("href");
+            sectionLinks.forEach((link) => {
+                link.classList.toggle(
+                    "active",
+                    link.getAttribute("href") === `#${activeSection.id}`
+                );
+            });
+        };
 
-                        if (!href || !href.startsWith("#")) {
-                            return;
-                        }
-
-                        link.classList.toggle(
-                            "active",
-                            href === `#${activeId}`
-                        );
-                    });
-                });
-            },
-            {
-                rootMargin: "-100px 0px -40% 0px",
-                threshold: 0
-            }
-        );
-
-        sections
-            .filter((section) => sectionLinkIds.has(section.id))
-            .forEach((section) => observer.observe(section));
+        updateActiveLink();
+        window.addEventListener("scroll", updateActiveLink, { passive: true });
+        window.addEventListener("resize", updateActiveLink);
+        window.setTimeout(updateActiveLink, 80);
     }
 
     /**

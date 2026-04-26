@@ -1006,7 +1006,8 @@ img {
 
     .monogram {
         width: 36px;
-        height: 36px;
+        height: auto;
+        display: block;
         margin: 0;
     }
 
