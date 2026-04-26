@@ -63,26 +63,20 @@
 
 <div class="container">
     <section id="blog" class="section">
-        <div class="card-pack">
-            <h2 data-translate="blog.header"></h2>
+        <div class="blog-layout">
+            <aside class="blog-sidebar">
+                <div class="blog-sidebar-card">
+                    <div id="blog-filters" class="blog-filters" aria-label="Blog filters"></div>
+                </div>
+            </aside>
 
-            <div class="card">
-                <p data-translate="blog.intro"></p>
-            </div>
+            <div class="blog-main">
+                <div id="blog-list-view" class="blog-list-view">
+                    <div id="blog-grid" class="blog-grid" aria-live="polite"></div>
+                    <div id="blog-empty-state" class="blog-empty-state" hidden></div>
+                </div>
 
-            <div class="card" id="blog-card-1">
-                <h3 data-translate="blog.card1Title"></h3>
-                <p data-translate="blog.card1Text"></p>
-            </div>
-
-            <div class="card" id="blog-card-2">
-                <h3 data-translate="blog.card2Title"></h3>
-                <p data-translate="blog.card2Text"></p>
-            </div>
-
-            <div class="card" id="blog-card-3">
-                <h3 data-translate="blog.card3Title"></h3>
-                <p data-translate="blog.card3Text"></p>
+                <article id="blog-article-view" class="blog-article-view" hidden aria-live="polite"></article>
             </div>
         </div>
     </section>
@@ -93,6 +87,7 @@
 </footer>
 
 <script src="i18n.js" defer></script>
+<script src="blog.js" defer></script>
 <script src="site-ui.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,57 @@
+{
+  "tags": {
+    "lifestyle": {
+      "labels": {
+        "cs": "Lifestyle",
+        "en": "Lifestyle",
+        "de": "Lifestyle"
+      }
+    },
+    "traveling": {
+      "labels": {
+        "cs": "Cestování",
+        "en": "Traveling",
+        "de": "Reisen"
+      }
+    }
+
+  },
+  "articles": [
+    {
+      "id": "costarica story",
+      "date": "2026-04-19",
+      "readingTime": 5,
+      "tags": ["lifestyle", "traveling"],
+      "image": {
+        "src": "blog photos/3f403b4e-4316-498e-9f66-44eb41afeec1.jpg",
+        "alt": {
+          "cs": "Fotka na koni",
+          "en": "Photo on the horse",
+          "de": "Foto an dem Pferd"
+        }
+      },
+      "locales": {
+        "cs": {
+          "title": "Kostarické dobrodružství",
+          "excerpt": "Krátká povídka o přežití, houževnatosti i mladické nerozvážnosti",
+          "content": [
+            "TBA" ]
+        },
+        "en": {
+          "title": "Costa Rican adventure",
+          "excerpt": "A short story about survival, persistence and youthful recklessness",
+          "content": [
+            "TBA" ]
+        },
+        "de": {
+          "title": "Abenteuer in Costa Rica",
+          "excerpt": "Eine Kurzgeschichte über Überleben, Beharrlichkeit und jugendliche Tollkühnheit",
+          "content": [
+            "TBA" ]
+        }
+      }
+    }
+
+
+  ]
+}
