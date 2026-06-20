@@ -132,6 +132,16 @@
         return article.locales?.[lang] || article.locales?.en || null;
     }
 
+    function getArticleParagraphs(localizedArticle) {
+        return (localizedArticle.content || [])
+            .flatMap((block) =>
+                String(block)
+                    .split(/\n\s*\n|\n/)
+                    .map((paragraph) => paragraph.trim())
+                    .filter(Boolean)
+            );
+    }
+
     function getCurrentTagFromUrl() {
         const url = new URL(window.location.href);
         return url.searchParams.get("tag") || "";
@@ -385,7 +395,7 @@
         });
         articleView.appendChild(tagList);
 
-        localizedArticle.content.forEach((paragraphText) => {
+        getArticleParagraphs(localizedArticle).forEach((paragraphText) => {
             const paragraph = document.createElement("p");
             paragraph.className = "blog-article-paragraph";
             paragraph.textContent = paragraphText;
@@ -407,6 +417,12 @@
     }
 
     function applyBlogViewState(lang, selectedTag, articleId) {
+        const blogLayout = document.querySelector(".blog-layout");
+
+        if (blogLayout) {
+            blogLayout.classList.toggle("is-article-detail", Boolean(articleId));
+        }
+
         updateStaticUi(lang);
         renderFilters(lang, selectedTag);
 

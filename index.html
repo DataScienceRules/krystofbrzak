@@ -102,21 +102,26 @@
 <!--    <img src="photos/prague_background.jpg" class="background_photo" alt="Nothing">-->
 
     <div class="container">
-        <section id="profile" class="section">
-            <h1 data-translate="profile.name"></h1>
+        <section id="profile" class="intro-video-section" aria-label="Drawing animation">
+            <video class="intro-video" autoplay muted playsinline preload="auto">
+                <source src="photos/drawing_animation.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <section id="profile-content" class="section">
+<!--            <h1 data-translate="profile.name"></h1>-->
             <div class="card-pack">
+<!--
                 <div id=profile_photo_card class="card profile_card">
                     <img src="photos/sxuddqsrsxzkgbrhkxeo.avif" alt="Profile" class="profile_photo" width="320" height="480" decoding="async" fetchpriority="high">
-                    <!-- Rounded rectangle label -->
                     <div class="label label-rect" data-depth="0.1" data-translate="profile.tag">
 
                     </div>
                     <div class="label label-rect2" data-depth="0.1">
 
                     </div>
-                    <!-- Pentagon label -->
                     <div class="label label-pentagon" data-depth="0.2">
-<!--                        <img class="label jet" src="photos/jet.png" alt="jet">-->
+                        <img class="label jet" src="photos/jet.png" alt="jet">
                     </div>
 
                     <div class="label label-pentagon2" data-depth="0.3">
@@ -130,6 +135,7 @@
                     <p data-translate="profile.content3" id="profile_text_card3"></p>
                     <p data-translate="profile.content4" id="profile_text_card4"></p>
                 </div>
+-->
 
                 <h3 data-translate="profile.servicesHeader"></h3>
                 <div class="card" id="service1">
