@@ -1,4 +1,8 @@
 (function initSiteUi() {
+    if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+    }
+
     /**
      * Toggle mobile navigation and language dropdown interactions.
      */
@@ -88,7 +92,10 @@
                 event.preventDefault();
                 const header = document.querySelector(".header");
                 const headerOffset = header ? header.offsetHeight : 0;
-                const extraOffset = window.innerWidth <= 768 ? 14 : 24;
+                const extraOffset =
+                    targetSelector === "#profile"
+                        ? 0
+                        : window.innerWidth <= 768 ? 14 : 24;
                 const targetTop =
                     targetElement.getBoundingClientRect().top +
                     window.scrollY -
@@ -100,6 +107,20 @@
                     behavior: "smooth"
                 });
             });
+        });
+    }
+
+    /**
+     * Make the intro video the default landing position on plain page visits.
+     */
+    function initLandingPage() {
+        if (window.location.hash) {
+            return;
+        }
+
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
         });
     }
 
@@ -120,7 +141,10 @@
         const alignHashTarget = () => {
             const header = document.querySelector(".header");
             const headerOffset = header ? header.offsetHeight : 0;
-            const extraOffset = window.innerWidth <= 768 ? 14 : 24;
+            const extraOffset =
+                window.location.hash === "#profile"
+                    ? 0
+                    : window.innerWidth <= 768 ? 14 : 24;
             const targetTop =
                 targetElement.getBoundingClientRect().top +
                 window.scrollY -
@@ -374,6 +398,7 @@
         initJumpLinks();
         initPageTransitions();
         initSmoothScroll();
+        initLandingPage();
         initHashLanding();
         initFadeIn();
         initActiveNav();
