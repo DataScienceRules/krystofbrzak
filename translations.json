@@ -6,6 +6,9 @@
       "etymology": "Blog",
       "contact": "Kontakt"
     },
+    "loading": {
+      "animation": "Načítání animace"
+    },
     "blog": {
       "header": "Blog",
       "intro": "Poznámky k projektovému řízení, technologiím a práci na pomezí delivery, vývoje a AI.",
@@ -98,6 +101,9 @@
       "etymology": "Blog",
       "contact": "Contact"
     },
+    "loading": {
+      "animation": "Loading animation"
+    },
     "blog": {
       "header": "Blog",
       "intro": "Notes on project delivery, technology, and the overlap between delivery, development, and AI.",
@@ -188,6 +194,9 @@
       "journey": "Werdegang",
       "etymology": "Blog",
       "contact": "Kontakt"
+    },
+    "loading": {
+      "animation": "Animation wird geladen"
     },
     "blog": {
       "header": "Blog",

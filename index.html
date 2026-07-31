@@ -67,7 +67,7 @@
 
     <title>Kryštof Brzák</title>
 </head>
-<body>
+<body class="intro-scroll-locked intro-header-hidden">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QRFSJ7JYQR"></script>
 <script src="analytics.js" defer></script>
 
@@ -102,10 +102,14 @@
 <!--    <img src="photos/prague_background.jpg" class="background_photo" alt="Nothing">-->
 
     <div class="container">
-        <section id="profile" class="intro-video-section" aria-label="Drawing animation">
+        <section id="profile" class="intro-video-section intro-video-loading" aria-label="Drawing animation" aria-busy="true">
             <video class="intro-video" autoplay muted playsinline preload="auto">
                 <source src="photos/drawing_animation.mp4" type="video/mp4">
             </video>
+            <div class="intro-video-loader" role="status" aria-live="polite">
+                <div class="intro-loader-spinner" aria-hidden="true"></div>
+                <p class="intro-loader-text" data-translate="loading.animation">Loading animation</p>
+            </div>
         </section>
 
         <section id="profile-content" class="section">
