@@ -27,6 +27,33 @@ body{
     transition: opacity 0.18s ease;
 }
 
+html.intro-scroll-locked,
+body.intro-scroll-locked {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+body.intro-scroll-locked {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    touch-action: none;
+}
+
+body.intro-header-hidden .header {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-110%);
+}
+
+body.intro-header-visible .header {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    animation: introHeaderSlideDown 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
 body.page-transition-out {
     opacity: 0;
 }
@@ -37,6 +64,17 @@ body.page-transition-out {
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes introHeaderSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-110%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -66,15 +104,76 @@ img {
     padding: 0;
     background: transparent;
     display: flex;
+    align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .intro-video {
     display: block;
     width: 90%;
+    aspect-ratio: 16 / 9;
     height: auto;
     background: transparent;
     pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.intro-video-section.intro-video-loading .intro-video {
+    opacity: 0;
+}
+
+.intro-video-loader {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    min-height: 12rem;
+    background: #091111;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.intro-video-section.intro-video-ready .intro-video-loader {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-loader-spinner {
+    width: clamp(3rem, 5vw, 4.5rem);
+    aspect-ratio: 1;
+    border: 3px solid rgba(255, 245, 217, 0.2);
+    border-top-color: #ffd0a8;
+    border-radius: 50%;
+    animation: introLoaderSpin 0.9s linear infinite;
+}
+
+.intro-loader-text {
+    color: #ffd0a8;
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    text-align: center;
+}
+
+@keyframes introLoaderSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.intro-header-visible .header {
+        animation: none;
+    }
+
+    .intro-loader-spinner {
+        animation-duration: 1.8s;
+    }
 }
 
 #profile-content.section {
@@ -168,6 +267,8 @@ img {
         justify-content: space-between;
         z-index: 999;
         top:0;
+        transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease;
+        will-change: transform, opacity;
     }
     .hamburger {
         display: none;
@@ -245,11 +346,12 @@ img {
         /*box-shadow:*/
         /*        0 1px 2px #023b42,*/
         /*        0 2px 20px #023b42;*/
-        background: radial-gradient(
-                circle at top left,
-                #023b42,
-                transparent 120%
-        );
+        background:#091111;
+        /*background: radial-gradient(*/
+        /*        circle at top left,*/
+        /*        #023b42,*/
+        /*        transparent 120%*/
+        /*);*/
 
 
 
@@ -992,6 +1094,8 @@ img {
         justify-content: space-between;
         z-index: 999;
         top:0;
+        transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease;
+        will-change: transform, opacity;
     }
 
     body.mobile-menu-open {
@@ -1099,11 +1203,12 @@ img {
         /*box-shadow:*/
         /*        0 1px 2px #023b42,*/
         /*        0 2px 20px #023b42;*/
-        background: radial-gradient(
-                circle at top left,
-                #023b42,
-                transparent 120%
-        );
+        background:#091111;
+        /*background: radial-gradient(*/
+        /*        circle at top left,*/
+        /*        #023b42,*/
+        /*        transparent 120%*/
+        /*);*/
 
         /*background-image: radial-gradient(circle at center, lightblue, navy);*/
 

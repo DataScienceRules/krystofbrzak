@@ -214,5 +214,9 @@
     window.getCurrentLanguage = function getCurrentLanguage() {
         return currentLanguage || detectLanguage();
     };
-    document.addEventListener("DOMContentLoaded", loadTranslations);
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadTranslations, { once: true });
+    } else {
+        loadTranslations();
+    }
 })();

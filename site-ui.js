@@ -125,6 +125,132 @@
     }
 
     /**
+     * Keep the intro-video loader visible until the first playable frame is ready.
+     */
+    function initIntroVideoLoader() {
+        const introSection = document.querySelector(".intro-video-section");
+        const introVideo = introSection?.querySelector(".intro-video");
+        const root = document.documentElement;
+        const body = document.body;
+
+        if (!introSection || !introVideo) {
+            root.classList.remove("intro-scroll-locked");
+            body.classList.remove("intro-scroll-locked", "intro-header-hidden");
+            body.classList.add("intro-header-visible");
+            return;
+        }
+
+        let isLoadingComplete = false;
+        let isPlaybackStarting = false;
+        let isHeaderVisible = false;
+        const fallbackTimer = window.setTimeout(() => {
+            completeIntroLoading({ revealHeaderNow: true });
+        }, 10000);
+
+        root.classList.add("intro-scroll-locked");
+        body.classList.add("intro-scroll-locked", "intro-header-hidden");
+        body.classList.remove("intro-header-visible");
+
+        function unlockScroll() {
+            root.classList.remove("intro-scroll-locked");
+            body.classList.remove("intro-scroll-locked");
+        }
+
+        function revealHeader() {
+            if (isHeaderVisible) {
+                return;
+            }
+
+            isHeaderVisible = true;
+            body.classList.remove("intro-header-hidden");
+            body.classList.add("intro-header-visible");
+        }
+
+        function maybeRevealHeader() {
+            if (isHeaderVisible || !isLoadingComplete) {
+                return;
+            }
+
+            const duration = introVideo.duration;
+
+            if (!Number.isFinite(duration) || duration <= 0) {
+                return;
+            }
+
+            if (duration - introVideo.currentTime <= 5) {
+                revealHeader();
+            }
+        }
+
+        function completeIntroLoading({ revealHeaderNow = false } = {}) {
+            if (isLoadingComplete) {
+                return;
+            }
+
+            isLoadingComplete = true;
+            window.clearTimeout(fallbackTimer);
+            introSection.classList.remove("intro-video-loading");
+            introSection.classList.add("intro-video-ready");
+            introSection.setAttribute("aria-busy", "false");
+            unlockScroll();
+
+            if (revealHeaderNow) {
+                revealHeader();
+            } else {
+                maybeRevealHeader();
+            }
+        }
+
+        function startIntroVideo() {
+            if (isPlaybackStarting || isLoadingComplete) {
+                return;
+            }
+
+            isPlaybackStarting = true;
+
+            if (!introVideo.paused && introVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+                completeIntroLoading();
+                return;
+            }
+
+            const playPromise = introVideo.play();
+
+            if (playPromise && typeof playPromise.then === "function") {
+                playPromise.then(() => {
+                    completeIntroLoading();
+                }).catch(() => {
+                    completeIntroLoading({ revealHeaderNow: true });
+                });
+            } else {
+                completeIntroLoading();
+            }
+        }
+
+        if (introVideo.error) {
+            completeIntroLoading({ revealHeaderNow: true });
+            return;
+        }
+
+        if (introVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+            startIntroVideo();
+            return;
+        }
+
+        introVideo.addEventListener("loadeddata", startIntroVideo, { once: true });
+        introVideo.addEventListener("canplay", startIntroVideo, { once: true });
+        introVideo.addEventListener("playing", () => completeIntroLoading(), { once: true });
+        introVideo.addEventListener("timeupdate", maybeRevealHeader);
+        introVideo.addEventListener("durationchange", maybeRevealHeader);
+        introVideo.addEventListener("loadedmetadata", maybeRevealHeader);
+        introVideo.addEventListener("ended", revealHeader, { once: true });
+        introVideo.addEventListener(
+            "error",
+            () => completeIntroLoading({ revealHeaderNow: true }),
+            { once: true }
+        );
+    }
+
+    /**
      * Fine-tune landing on hash targets after a full page navigation.
      */
     function initHashLanding() {
@@ -392,19 +518,26 @@
         });
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
+    function initSiteInteractions() {
         document.body.classList.add("page-transition-ready");
         initNavigation();
         initJumpLinks();
         initPageTransitions();
         initSmoothScroll();
         initLandingPage();
+        initIntroVideoLoader();
         initHashLanding();
         initFadeIn();
         initActiveNav();
         initSceneParallax();
         initCircleLayout();
-    });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initSiteInteractions, { once: true });
+    } else {
+        initSiteInteractions();
+    }
 
     window.addEventListener("load", updateCircleLayout);
     window.addEventListener("resize", updateCircleLayout);
