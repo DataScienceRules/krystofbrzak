@@ -1,6 +1,93 @@
 (function initSiteUi() {
+    const INTRO_SKIP_PARAM = "intro";
+    const INTRO_SKIP_VALUE = "skip";
+    const INTRO_SESSION_KEY = "krystofIntroAnimationPlayed";
+
     if ("scrollRestoration" in window.history) {
         window.history.scrollRestoration = "manual";
+    }
+
+    function scrollToPageTop() {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "auto"
+        });
+    }
+
+    function settlePageTop() {
+        scrollToPageTop();
+        window.requestAnimationFrame(scrollToPageTop);
+        window.setTimeout(scrollToPageTop, 60);
+        window.setTimeout(scrollToPageTop, 240);
+
+        if (document.readyState !== "complete") {
+            window.addEventListener("load", scrollToPageTop, { once: true });
+        }
+    }
+
+    function shouldSettlePageTop() {
+        return !window.location.hash || window.location.hash === "#profile";
+    }
+
+    function getNavigationType() {
+        const navigationEntries = performance.getEntriesByType?.("navigation") || [];
+        const navigationEntry = navigationEntries[0];
+
+        if (navigationEntry?.type) {
+            return navigationEntry.type;
+        }
+
+        if (performance.navigation?.type === 1) {
+            return "reload";
+        }
+
+        return "navigate";
+    }
+
+    function hasIntroAnimationPlayed() {
+        try {
+            return window.sessionStorage.getItem(INTRO_SESSION_KEY) === "true";
+        } catch {
+            return false;
+        }
+    }
+
+    function markIntroAnimationPlayed() {
+        try {
+            window.sessionStorage.setItem(INTRO_SESSION_KEY, "true");
+        } catch {
+            // Browsers can block sessionStorage in stricter privacy modes.
+        }
+    }
+
+    function shouldSkipIntroAnimation() {
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.get(INTRO_SKIP_PARAM) === INTRO_SKIP_VALUE) {
+            return true;
+        }
+
+        if (getNavigationType() === "reload") {
+            return false;
+        }
+
+        return hasIntroAnimationPlayed();
+    }
+
+    function clearIntroSkipParam() {
+        const url = new URL(window.location.href);
+
+        if (url.searchParams.get(INTRO_SKIP_PARAM) !== INTRO_SKIP_VALUE) {
+            return;
+        }
+
+        url.searchParams.delete(INTRO_SKIP_PARAM);
+        window.history.replaceState(
+            window.history.state,
+            "",
+            `${url.pathname}${url.search}${url.hash}`
+        );
     }
 
     /**
@@ -114,14 +201,11 @@
      * Make the intro video the default landing position on plain page visits.
      */
     function initLandingPage() {
-        if (window.location.hash) {
+        if (!shouldSettlePageTop()) {
             return;
         }
 
-        window.scrollTo({
-            top: 0,
-            behavior: "auto"
-        });
+        settlePageTop();
     }
 
     /**
@@ -143,9 +227,7 @@
         let isLoadingComplete = false;
         let isPlaybackStarting = false;
         let isHeaderVisible = false;
-        const fallbackTimer = window.setTimeout(() => {
-            completeIntroLoading({ revealHeaderNow: true });
-        }, 10000);
+        let fallbackTimer = 0;
 
         root.classList.add("intro-scroll-locked");
         body.classList.add("intro-scroll-locked", "intro-header-hidden");
@@ -182,6 +264,11 @@
             }
         }
 
+        function holdIntroFinalFrame() {
+            introVideo.pause();
+            introSection.classList.add("intro-video-final");
+        }
+
         function completeIntroLoading({ revealHeaderNow = false } = {}) {
             if (isLoadingComplete) {
                 return;
@@ -200,6 +287,33 @@
                 maybeRevealHeader();
             }
         }
+
+        function bypassIntroLoading() {
+            isLoadingComplete = true;
+            holdIntroFinalFrame();
+
+            introSection.classList.remove("intro-video-loading");
+            introSection.classList.add("intro-video-ready");
+            introSection.setAttribute("aria-busy", "false");
+            unlockScroll();
+            revealHeader();
+            markIntroAnimationPlayed();
+            clearIntroSkipParam();
+
+            if (shouldSettlePageTop()) {
+                settlePageTop();
+            }
+        }
+
+        if (shouldSkipIntroAnimation()) {
+            bypassIntroLoading();
+            return;
+        }
+
+        markIntroAnimationPlayed();
+        fallbackTimer = window.setTimeout(() => {
+            completeIntroLoading({ revealHeaderNow: true });
+        }, 10000);
 
         function startIntroVideo() {
             if (isPlaybackStarting || isLoadingComplete) {
@@ -226,6 +340,29 @@
             }
         }
 
+        introVideo.addEventListener("loadeddata", startIntroVideo, { once: true });
+        introVideo.addEventListener("canplay", startIntroVideo, { once: true });
+        introVideo.addEventListener("playing", () => completeIntroLoading(), { once: true });
+        introVideo.addEventListener("timeupdate", maybeRevealHeader);
+        introVideo.addEventListener("durationchange", maybeRevealHeader);
+        introVideo.addEventListener("loadedmetadata", maybeRevealHeader);
+        introVideo.addEventListener(
+            "ended",
+            () => {
+                holdIntroFinalFrame();
+                revealHeader();
+            },
+            { once: true }
+        );
+        introVideo.addEventListener(
+            "error",
+            () => {
+                holdIntroFinalFrame();
+                completeIntroLoading({ revealHeaderNow: true });
+            },
+            { once: true }
+        );
+
         if (introVideo.error) {
             completeIntroLoading({ revealHeaderNow: true });
             return;
@@ -233,21 +370,7 @@
 
         if (introVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
             startIntroVideo();
-            return;
         }
-
-        introVideo.addEventListener("loadeddata", startIntroVideo, { once: true });
-        introVideo.addEventListener("canplay", startIntroVideo, { once: true });
-        introVideo.addEventListener("playing", () => completeIntroLoading(), { once: true });
-        introVideo.addEventListener("timeupdate", maybeRevealHeader);
-        introVideo.addEventListener("durationchange", maybeRevealHeader);
-        introVideo.addEventListener("loadedmetadata", maybeRevealHeader);
-        introVideo.addEventListener("ended", revealHeader, { once: true });
-        introVideo.addEventListener(
-            "error",
-            () => completeIntroLoading({ revealHeaderNow: true }),
-            { once: true }
-        );
     }
 
     /**
@@ -265,6 +388,11 @@
         }
 
         const alignHashTarget = () => {
+            if (window.location.hash === "#profile") {
+                settlePageTop();
+                return;
+            }
+
             const header = document.querySelector(".header");
             const headerOffset = header ? header.offsetHeight : 0;
             const extraOffset =
@@ -283,7 +411,13 @@
             });
         };
 
+        window.requestAnimationFrame(alignHashTarget);
         window.setTimeout(alignHashTarget, 60);
+        window.setTimeout(alignHashTarget, 240);
+
+        if (document.readyState !== "complete") {
+            window.addEventListener("load", alignHashTarget, { once: true });
+        }
     }
 
     /**
@@ -430,7 +564,7 @@
         const height = container.offsetHeight;
         const centerX = width / 2;
         const centerY = height / 2;
-        const radius = Math.min(width, height) / 2 - 10;
+        const radius = Math.min(width, height) / 2 - 68;
 
         items.forEach((item, index) => {
             const angle = (index / count) * (2 * Math.PI) - Math.PI / 2;
@@ -471,6 +605,14 @@
      */
     function initSceneParallax() {
         const scenes = document.querySelectorAll(".traits, .circle-scene");
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+        const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+        if (prefersReducedMotion || !canHover) {
+            return;
+        }
 
         scenes.forEach((scene) => {
             const layers = scene.querySelectorAll("[data-depth]");
@@ -479,42 +621,119 @@
                 return;
             }
 
-            const resetScene = () => {
-                layers.forEach((layer) => {
-                    const baseTransform = layer.classList.contains("circle-item")
-                        ? "translate(-50%, -50%) "
-                        : "";
-
-                    layer.style.transform = `${baseTransform}translate(0px, 0px)`;
-                });
-
-                scene.style.transform = "";
+            const isOrbitScene = scene.classList.contains("circle-scene");
+            const maxLayerMove = isOrbitScene ? 76 : 30;
+            const maxTilt = isOrbitScene ? 9 : 10;
+            const state = {
+                targetX: 0,
+                targetY: 0,
+                currentX: 0,
+                currentY: 0,
+                isActive: false,
+                frameId: null
             };
 
-            scene.addEventListener("mousemove", (event) => {
-                const rect = scene.getBoundingClientRect();
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const moveX = (event.clientX - rect.left - centerX) / centerX;
-                const moveY = (event.clientY - rect.top - centerY) / centerY;
+            const setLayerOffset = (layer, x, y) => {
+                const depth = Number(layer.dataset.depth || 0);
+                const translateX = -x * depth * maxLayerMove;
+                const translateY = -y * depth * maxLayerMove;
+                const translateZ = isOrbitScene ? depth * 42 : 0;
+
+                if (isOrbitScene) {
+                    layer.style.setProperty("--parallax-x", `${translateX.toFixed(2)}px`);
+                    layer.style.setProperty("--parallax-y", `${translateY.toFixed(2)}px`);
+                    layer.style.setProperty("--parallax-z", `${translateZ.toFixed(2)}px`);
+                    return;
+                }
+
+                layer.style.transform =
+                    `translate3d(${translateX.toFixed(2)}px, ${translateY.toFixed(2)}px, 0)`;
+            };
+
+            const renderFrame = () => {
+                state.currentX += (state.targetX - state.currentX) * 0.16;
+                state.currentY += (state.targetY - state.currentY) * 0.16;
 
                 layers.forEach((layer) => {
-                    const depth = Number(layer.dataset.depth || 0);
-                    const translateX = -moveX * depth * 30;
-                    const translateY = -moveY * depth * 30;
-                    const baseTransform = layer.classList.contains("circle-item")
-                        ? "translate(-50%, -50%) "
-                        : "";
-
-                    layer.style.transform =
-                        `${baseTransform}translate(${translateX}px, ${translateY}px)`;
+                    setLayerOffset(layer, state.currentX, state.currentY);
                 });
 
-                scene.style.transform =
-                    `rotateX(${moveY * 15}deg) rotateY(${moveX * 15}deg)`;
+                if (isOrbitScene) {
+                    scene.style.setProperty(
+                        "--scene-rotate-x",
+                        `${(-state.currentY * maxTilt).toFixed(2)}deg`
+                    );
+                    scene.style.setProperty(
+                        "--scene-rotate-y",
+                        `${(state.currentX * maxTilt).toFixed(2)}deg`
+                    );
+                    scene.style.setProperty(
+                        "--scene-glow-x",
+                        `${(50 + state.currentX * 24).toFixed(2)}%`
+                    );
+                    scene.style.setProperty(
+                        "--scene-glow-y",
+                        `${(50 + state.currentY * 24).toFixed(2)}%`
+                    );
+                } else {
+                    scene.style.transform =
+                        `rotateX(${(-state.currentY * maxTilt).toFixed(2)}deg) ` +
+                        `rotateY(${(state.currentX * maxTilt).toFixed(2)}deg)`;
+                }
+
+                const isSettled =
+                    Math.abs(state.targetX - state.currentX) < 0.001 &&
+                    Math.abs(state.targetY - state.currentY) < 0.001;
+
+                if (!state.isActive && isSettled) {
+                    state.currentX = 0;
+                    state.currentY = 0;
+                    layers.forEach((layer) => {
+                        setLayerOffset(layer, 0, 0);
+                    });
+
+                    if (isOrbitScene) {
+                        scene.style.setProperty("--scene-rotate-x", "0deg");
+                        scene.style.setProperty("--scene-rotate-y", "0deg");
+                        scene.style.setProperty("--scene-glow-x", "50%");
+                        scene.style.setProperty("--scene-glow-y", "50%");
+                    } else {
+                        scene.style.transform = "";
+                    }
+
+                    state.frameId = null;
+                    return;
+                }
+
+                state.frameId = window.requestAnimationFrame(renderFrame);
+            };
+
+            const requestRender = () => {
+                if (!state.frameId) {
+                    state.frameId = window.requestAnimationFrame(renderFrame);
+                }
+            };
+
+            const resetScene = () => {
+                state.isActive = false;
+                state.targetX = 0;
+                state.targetY = 0;
+                requestRender();
+            };
+
+            scene.addEventListener("pointermove", (event) => {
+                const rect = scene.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                state.isActive = true;
+                state.targetX = Math.max(-1, Math.min(1, (event.clientX - centerX) / (rect.width / 2)));
+                state.targetY = Math.max(-1, Math.min(1, (event.clientY - centerY) / (rect.height / 2)));
+                requestRender();
             });
 
-            scene.addEventListener("mouseleave", resetScene);
+            scene.addEventListener("pointerleave", resetScene);
+            scene.addEventListener("blur", resetScene, true);
         });
     }
 
