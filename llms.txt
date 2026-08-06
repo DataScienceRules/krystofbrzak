@@ -1,0 +1,13 @@
+# Personal web of Kryštof Brzák
+Kryštof Brzák is IT project manager and the web describes his skills and projects he worked on.
+Web is complemented by a blog with posts about past experiences from personal and work life.
+
+## URL
+- [Root](https://krystofbrzak.com) - landing page
+- [Blog](https://krystofbrzak.com/blog) - blog page
+
+## Available Languages on Website
+- Czech
+- English
+- German
+
