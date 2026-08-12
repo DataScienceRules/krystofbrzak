@@ -86,10 +86,38 @@
     }
 
     /**
+     * Resolve a per-language URL for links that live on their own path per
+     * locale (e.g. the statically generated /blog/, /en/blog/, /de/blog/)
+     * instead of a shared path with a ?lang= query parameter.
+     */
+    function getLangPathMapTarget(element, lang) {
+        const rawMap = element.dataset.langPathMap;
+
+        if (!rawMap) {
+            return null;
+        }
+
+        try {
+            const parsed = JSON.parse(rawMap);
+            return parsed[lang] || parsed[DEFAULT_LANG] || Object.values(parsed)[0] || null;
+        } catch (error) {
+            console.error("Invalid data-lang-path-map", error);
+            return null;
+        }
+    }
+
+    /**
      * Keep internal cross-page links aligned with the currently selected language.
      */
     function updateLocalizedLinks(lang) {
-        document.querySelectorAll("[data-lang-href]").forEach((element) => {
+        document.querySelectorAll("[data-lang-href], [data-lang-path-map]").forEach((element) => {
+            const pathMapTarget = getLangPathMapTarget(element, lang);
+
+            if (pathMapTarget) {
+                element.href = pathMapTarget;
+                return;
+            }
+
             const rawTarget = element.dataset.langHref;
 
             if (!rawTarget) {
@@ -109,7 +137,14 @@
      * Keep document prefetch hints aligned with the active language.
      */
     function updatePrefetchLinks(lang) {
-        document.querySelectorAll("link[data-lang-prefetch]").forEach((element) => {
+        document.querySelectorAll("link[data-lang-prefetch], link[data-lang-path-map]").forEach((element) => {
+            const pathMapTarget = getLangPathMapTarget(element, lang);
+
+            if (pathMapTarget) {
+                element.href = pathMapTarget;
+                return;
+            }
+
             const rawTarget = element.dataset.langPrefetch;
 
             if (!rawTarget) {
