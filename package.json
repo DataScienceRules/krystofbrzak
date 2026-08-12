@@ -1,0 +1,7 @@
+{
+  "name": "krystofbrzak-com",
+  "private": true,
+  "scripts": {
+    "build:blog": "node scripts/build-blog.mjs"
+  }
+}

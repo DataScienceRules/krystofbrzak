@@ -1,59 +1,60 @@
 <!DOCTYPE html>
-
 <html lang="cs">
 <head>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Poznámky k projektovému řízení, technologiím a práci na pomezí delivery, vývoje a AI.">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-    <link rel="manifest" href="../favicon/site.webmanifest">
-    <link rel="canonical" id="canonical-link" href="https://krystofbrzak.com/blog/?lang=cs">
-    <link rel="prefetch" href="../?lang=cs" data-lang-prefetch="../">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="canonical" href="https://krystofbrzak.com/blog/">
+    <link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/">
+    <link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/">
+    <link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/">
+    <link rel="alternate" hreflang="x-default" href="https://krystofbrzak.com/blog/">
+    <link rel="prefetch" href="/?lang=cs">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Kryštof Brzák">
     <meta property="og:locale" content="cs_CZ">
-    <meta property="og:title" content="Kryštof Brzák Blog">
-    <meta property="og:description" content="Notes on project delivery, technology, and the overlap between development and AI.">
-    <meta property="og:url" content="https://krystofbrzak.com/blog/?lang=cs">
+    <meta property="og:title" content="Blog — Kryštof Brzák">
+    <meta property="og:description" content="Poznámky k projektovému řízení, technologiím a práci na pomezí delivery, vývoje a AI.">
+    <meta property="og:url" content="https://krystofbrzak.com/blog/">
     <meta property="og:image" content="https://krystofbrzak.com/favicon/android-chrome-512x512.png">
     <meta property="og:image:alt" content="Kryštof Brzák">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="512">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
-    <title>Kryštof Brzák Blog</title>
+    <title>Blog — Kryštof Brzák</title>
 </head>
 <body class="blog-page">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QRFSJ7JYQR"></script>
-<script src="../analytics.js" defer></script>
+<script src="/analytics.js" defer></script>
 
 <header class="header">
-    <a href="../?lang=cs&intro=skip#profile" class="monogram-link scroll" data-lang-href="../?intro=skip#profile" aria-label="Go to homepage">
-        <img src="../photos/alrfhowhtf0vr9ctvpat.avif" alt="KB" class="monogram" width="48" height="48" decoding="async">
+    <a href="/?lang=cs&intro=skip#profile" class="monogram-link scroll" aria-label="Přejít na profil">
+        <img src="/photos/alrfhowhtf0vr9ctvpat.avif" alt="KB" class="monogram" width="48" height="48" decoding="async">
     </a>
 
     <nav id="nav-menu" class="nav">
-        <a href="../?lang=cs&intro=skip#profile" class="scroll" data-lang-href="../?intro=skip#profile" data-translate="menu.profile"></a>
-        <a href="../?lang=cs#journey" class="scroll" data-lang-href="../#journey" data-translate="menu.journey"></a>
-        <a href="../blog/?lang=cs" class="scroll active" data-lang-href="../blog/" data-translate="menu.etymology" aria-current="page"></a>
-        <a href="../?lang=cs#contact" class="scroll" data-lang-href="../#contact" data-translate="menu.contact"></a>
+        <a href="/?lang=cs&intro=skip#profile" class="scroll">Profil</a>
+        <a href="/?lang=cs#journey" class="scroll">Cesta</a>
+        <a href="/blog/" class="scroll active" aria-current="page">Blog</a>
+        <a href="/?lang=cs#contact" class="scroll">Kontakt</a>
         <div class="lang-dropdown">
             <div class="selected-lang">
-                <span class="flag" data-lang="cs" aria-label="Current language">CS</span>
+                <span class="flag" data-lang="cs" aria-label="Aktuální jazyk: Čeština">CS</span>
             </div>
 
             <div class="lang-options">
-                <button type="button" class="flag" data-lang="cs" aria-label="Čeština">CS</button>
-                <button type="button" class="flag" data-lang="en" aria-label="English">EN</button>
-                <button type="button" class="flag" data-lang="de" aria-label="Deutsch">DE</button>
+                <a href="/blog/" class="flag active" data-lang="cs" aria-label="Čeština">CS</a>
+                <a href="/en/blog/" class="flag" data-lang="en" aria-label="English">EN</a>
+                <a href="/de/blog/" class="flag" data-lang="de" aria-label="Deutsch">DE</a>
             </div>
         </div>
     </nav>
@@ -66,28 +67,57 @@
         <div class="blog-layout">
             <aside class="blog-sidebar">
                 <div class="blog-sidebar-card">
-                    <div id="blog-filters" class="blog-filters" aria-label="Blog filters"></div>
+                    <div id="blog-filters" class="blog-filters" aria-label="Filtr článků">
+                    <button type="button" class="blog-filter-button active" data-tag="">Všechny články</button>
+                    <button type="button" class="blog-filter-button" data-tag="lifestyle">Lifestyle</button>
+                    <button type="button" class="blog-filter-button" data-tag="traveling">Cestování</button>
+                    </div>
                 </div>
             </aside>
 
             <div class="blog-main">
                 <div id="blog-list-view" class="blog-list-view">
-                    <div id="blog-grid" class="blog-grid" aria-live="polite"></div>
-                    <div id="blog-empty-state" class="blog-empty-state" hidden></div>
+                    <div id="blog-grid" class="blog-grid">
+                    <a href="/blog/costarica-story/" class="blog-article-card" data-tags="lifestyle,traveling">
+                        <img class="blog-card-image" src="/blog%20photos/3f403b4e-4316-498e-9f66-44eb41afeec1.jpg" alt="Fotka na koni" loading="lazy">
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">19. dubna 2026 | 5 min. čtení</div>
+                            <h3>Kostarické dobrodružství</h3>
+                            <p>Krátká povídka o přežití, houževnatosti i mladické nerozvážnosti</p>
+                            <div class="blog-card-tags"><span class="blog-tag">Lifestyle</span><span class="blog-tag">Cestování</span></div>
+                        </div>
+                    </a>
+                    <a href="/blog/tajic-230/" class="blog-article-card" data-tags="lifestyle,traveling">
+                        <img class="blog-card-image" src="/blog%20photos/588017ab-45a1-4f2d-b9e5-7594e0ccc672.jpg" alt="Fotka wahan" loading="lazy">
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">24. července 2026 | 3 min. čtení</div>
+                            <h3>Tádžických 230</h3>
+                            <p>Krátká cestovatelská povídka</p>
+                            <div class="blog-card-tags"><span class="blog-tag">Lifestyle</span><span class="blog-tag">Cestování</span></div>
+                        </div>
+                    </a>
+                    <a href="/blog/under-bridge-to-fancy-villa/" class="blog-article-card" data-tags="lifestyle,traveling">
+                        <img class="blog-card-image" src="/blog%20photos/163784581_1511248539227211_6870420232107312410_n.jpg" alt="Fotka madeira" loading="lazy">
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">25. července 2026 | 3 min. čtení</div>
+                            <h3>Z pod mostu ke smetánce</h3>
+                            <p>Příhoda digitálního nomáda</p>
+                            <div class="blog-card-tags"><span class="blog-tag">Lifestyle</span><span class="blog-tag">Cestování</span></div>
+                        </div>
+                    </a>
+                    </div>
+                    <div id="blog-empty-state" class="blog-empty-state" hidden>K tomuto tagu zatím není přiřazený žádný článek.</div>
                 </div>
-
-                <article id="blog-article-view" class="blog-article-view" hidden aria-live="polite"></article>
             </div>
         </div>
     </section>
 </div>
 
 <footer class="footer">
-    <p data-translate="footer"></p>
+    <p>© Kryštof Brzák 2026 IČO: 22433805</p>
 </footer>
 
-<script src="../i18n.js" defer></script>
-<script src="../blog.js" defer></script>
-<script src="../site-ui.js" defer></script>
+<script src="/site-ui.js" defer></script>
+<script src="/blog.js" defer></script>
 </body>
 </html>

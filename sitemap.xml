@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://krystofbrzak.com/</loc>
   </url>
@@ -14,14 +14,83 @@
   </url>
   <url>
     <loc>https://krystofbrzak.com/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/"/>
   </url>
   <url>
-    <loc>https://krystofbrzak.com/blog/?lang=cs</loc>
+    <loc>https://krystofbrzak.com/en/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/"/>
   </url>
   <url>
-    <loc>https://krystofbrzak.com/blog/?lang=en</loc>
+    <loc>https://krystofbrzak.com/de/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/"/>
   </url>
   <url>
-    <loc>https://krystofbrzak.com/blog/?lang=de</loc>
+    <loc>https://krystofbrzak.com/blog/costarica-story/</loc>
+    <lastmod>2026-04-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/costarica-story/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/costarica-story/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/costarica-story/"/>
+  </url>
+  <url>
+    <loc>https://krystofbrzak.com/en/blog/costarica-story/</loc>
+    <lastmod>2026-04-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/costarica-story/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/costarica-story/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/costarica-story/"/>
+  </url>
+  <url>
+    <loc>https://krystofbrzak.com/de/blog/costarica-story/</loc>
+    <lastmod>2026-04-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/costarica-story/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/costarica-story/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/costarica-story/"/>
+  </url>
+  <url>
+    <loc>https://krystofbrzak.com/blog/tajic-230/</loc>
+    <lastmod>2026-07-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/tajic-230/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/tajic-230/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/tajic-230/"/>
+  </url>
+  <url>
+    <loc>https://krystofbrzak.com/en/blog/tajic-230/</loc>
+    <lastmod>2026-07-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/tajic-230/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/tajic-230/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/tajic-230/"/>
+  </url>
+  <url>
+    <loc>https://krystofbrzak.com/de/blog/tajic-230/</loc>
+    <lastmod>2026-07-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/tajic-230/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/tajic-230/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/tajic-230/"/>
+  </url>
+  <url>
+    <loc>https://krystofbrzak.com/blog/under-bridge-to-fancy-villa/</loc>
+    <lastmod>2026-07-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/under-bridge-to-fancy-villa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/under-bridge-to-fancy-villa/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/under-bridge-to-fancy-villa/"/>
+  </url>
+  <url>
+    <loc>https://krystofbrzak.com/en/blog/under-bridge-to-fancy-villa/</loc>
+    <lastmod>2026-07-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/under-bridge-to-fancy-villa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/under-bridge-to-fancy-villa/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/under-bridge-to-fancy-villa/"/>
+  </url>
+  <url>
+    <loc>https://krystofbrzak.com/de/blog/under-bridge-to-fancy-villa/</loc>
+    <lastmod>2026-07-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://krystofbrzak.com/blog/under-bridge-to-fancy-villa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/under-bridge-to-fancy-villa/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/under-bridge-to-fancy-villa/"/>
   </url>
 </urlset>
