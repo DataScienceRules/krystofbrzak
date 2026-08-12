@@ -1,0 +1,50 @@
+name: Build site pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "blog-posts.json"
+      - "translations.json"
+      - "scripts/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "blog-posts.json"
+      - "translations.json"
+      - "scripts/**"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate static homepage + blog pages
+        run: npm run build
+
+      # main is protected (merges go through PRs), so on push we open a PR
+      # with the regenerated output instead of committing straight to main.
+      - name: Open PR with regenerated pages
+        if: github.event_name == 'push'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: regenerate static homepage + blog pages"
+          title: "chore: regenerate static homepage + blog pages"
+          body: Automated rebuild triggered by a change to blog-posts.json, translations.json, or the page generators.
+          branch: automated/regenerate-static-pages
+          add-paths: |
+            blog
+            en
+            de
+            index.html
+            sitemap.xml

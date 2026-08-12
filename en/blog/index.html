@@ -5,6 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Notes on project delivery, technology, and the overlap between delivery, development, and AI.">
+    <script>
+    (function redirectLegacyLangQuery() {
+        var params = new URLSearchParams(window.location.search);
+        var requestedLang = params.get("lang");
+        var LANGS = ["cs","en","de"];
+        var DEFAULT_LANG = "cs";
+
+        if (!requestedLang || LANGS.indexOf(requestedLang) === -1) {
+            return;
+        }
+
+        var currentLang = document.documentElement.lang;
+        params.delete("lang");
+        var remainingQuery = params.toString();
+
+        if (requestedLang === currentLang) {
+            var cleanUrl = window.location.pathname + (remainingQuery ? "?" + remainingQuery : "") + window.location.hash;
+            if (cleanUrl !== window.location.pathname + window.location.search + window.location.hash) {
+                window.history.replaceState(null, "", cleanUrl);
+            }
+            return;
+        }
+
+        var segments = window.location.pathname.split("/").filter(Boolean);
+        if (LANGS.indexOf(segments[0]) !== -1 && segments[0] !== DEFAULT_LANG) {
+            segments.shift();
+        }
+        var suffix = segments.length ? "/" + segments.join("/") + "/" : "/";
+        var prefix = requestedLang === DEFAULT_LANG ? "" : "/" + requestedLang;
+        var target = prefix + suffix + (remainingQuery ? "?" + remainingQuery : "") + window.location.hash;
+        window.location.replace(target);
+    })();
+    </script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -15,7 +48,7 @@
     <link rel="alternate" hreflang="en" href="https://krystofbrzak.com/en/blog/">
     <link rel="alternate" hreflang="de" href="https://krystofbrzak.com/de/blog/">
     <link rel="alternate" hreflang="x-default" href="https://krystofbrzak.com/blog/">
-    <link rel="prefetch" href="/?lang=en">
+    <link rel="prefetch" href="/en/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Kryštof Brzák">
@@ -37,15 +70,15 @@
 <script src="/analytics.js" defer></script>
 
 <header class="header">
-    <a href="/?lang=en&intro=skip#profile" class="monogram-link scroll" aria-label="Go to homepage">
+    <a href="/en/?intro=skip#profile" class="monogram-link scroll" aria-label="Go to homepage">
         <img src="/photos/alrfhowhtf0vr9ctvpat.avif" alt="KB" class="monogram" width="48" height="48" decoding="async">
     </a>
 
     <nav id="nav-menu" class="nav">
-        <a href="/?lang=en&intro=skip#profile" class="scroll">Profile</a>
-        <a href="/?lang=en#journey" class="scroll">Journey</a>
+        <a href="/en/?intro=skip#profile" class="scroll">Profile</a>
+        <a href="/en/#journey" class="scroll">Journey</a>
         <a href="/en/blog/" class="scroll active" aria-current="page">Blog</a>
-        <a href="/?lang=en#contact" class="scroll">Contact</a>
+        <a href="/en/#contact" class="scroll">Contact</a>
         <div class="lang-dropdown">
             <div class="selected-lang">
                 <span class="flag" data-lang="en" aria-label="Current language: English">EN</span>

@@ -130,11 +130,6 @@
         languageFlags.forEach((flag) => {
             flag.addEventListener("click", (event) => {
                 event.stopPropagation();
-
-                if (typeof window.setLanguage === "function") {
-                    window.setLanguage(flag.dataset.lang);
-                }
-
                 langDropdown.classList.remove("open");
                 syncMobileMenuState();
             });

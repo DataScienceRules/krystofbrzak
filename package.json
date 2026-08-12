@@ -2,6 +2,8 @@
   "name": "krystofbrzak-com",
   "private": true,
   "scripts": {
-    "build:blog": "node scripts/build-blog.mjs"
+    "build:homepage": "node scripts/build-homepage.mjs",
+    "build:blog": "node scripts/build-blog.mjs",
+    "build": "npm run build:homepage && npm run build:blog"
   }
 }
