@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="canonical" id="canonical-link" href="https://krystofbrzak.com/?lang=cs">
+    <link rel="prefetch" href="blog/" data-lang-path-map='{"cs":"blog/","en":"en/blog/","de":"de/blog/"}'>
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kryštof Brzák">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:title" content="Kryštof Brzák | Projektové vedení, vývoj systémů a delivery">
+    <meta property="og:description" content="Projektové vedení, týmová koordinace a technický přesah. Osobní web Kryštofa Brzáka.">
+    <meta property="og:url" content="https://krystofbrzak.com/?lang=cs">
+    <meta property="og:image" content="https://krystofbrzak.com/favicon/android-chrome-512x512.png">
+    <meta property="og:image:alt" content="Kryštof Brzák">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://krystofbrzak.com/#person",
+            "name": "Kryštof Brzák",
+            "url": "https://krystofbrzak.com/",
+            "image": "https://krystofbrzak.com/favicon/android-chrome-512x512.png",
+            "jobTitle": "Project Manager",
+            "description": "Project leadership, team coordination, and custom systems delivery.",
+            "email": "mailto:krystof.brzak@gmail.com",
+            "sameAs": [
+                "https://www.linkedin.com/in/krystof-brzak"
+            ],
+            "knowsAbout": [
+                "Project management",
+                "Delivery management",
+                "Software development",
+                "Web development",
+                "Python",
+                "SQL",
+                "REST API",
+                "DevOps",
+                "Power BI",
+                "LLMs",
+                "Claude",
+                "Codex",
+                "Vibe coding",
+                "3D printing",
+                "Telematics",
+                "Concept art"
+            ]
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.4/pixi.min.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <title>Kryštof Brzák</title>
+</head>
+<body class="intro-scroll-locked intro-header-hidden">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QRFSJ7JYQR"></script>
+<script src="analytics.js" defer></script>
+
+<!-- Navigation -->
+<header class="header">
+    <a href="#profile" class="monogram-link scroll" aria-label="Přejít na profil">
+        <img src="photos/alrfhowhtf0vr9ctvpat.avif" alt="KB" class="monogram" width="48" height="48" decoding="async">
+    </a>
+
+    <nav id="nav-menu" class="nav">
+        <a href="#profile" class="scroll" data-translate="menu.profile"></a>
+        <a href="#journey" class="scroll" data-translate="menu.journey"></a>
+        <a href="blog/" class="scroll" data-lang-path-map='{"cs":"blog/","en":"en/blog/","de":"de/blog/"}' data-translate="menu.etymology"></a>
+        <a href="#contact" class="scroll" data-translate="menu.contact"></a>
+        <div class="lang-dropdown">
+            <div class="selected-lang">
+                <span class="flag" data-lang="cs" aria-label="Current language">CS</span>
+            </div>
+
+            <div class="lang-options">
+                <button type="button" class="flag" data-lang="cs" aria-label="Cestina">CS</button>
+                <button type="button" class="flag" data-lang="en" aria-label="English">EN</button>
+                <button type="button" class="flag" data-lang="de" aria-label="Deutsch">DE</button>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="hamburger" id="hamburger">&#9776;</div>
+</header>
+<!--    <img src="photos/prague_background.jpg" class="background_photo" alt="Nothing">-->
+
+    <div class="container">
+        <section id="profile" class="intro-video-section intro-video-loading" aria-label="Drawing animation" aria-busy="true">
+            <video class="intro-video" autoplay muted playsinline preload="auto" poster="photos/drawing_animation_final_frame.jpg">
+                <source src="photos/drawing_animation.mp4" type="video/mp4">
+            </video>
+            <img class="intro-video-final-frame" src="photos/drawing_animation_final_frame.jpg" alt="" aria-hidden="true" loading="eager" decoding="async">
+            <div class="intro-video-loader" role="status" aria-live="polite">
+                <div class="intro-loader-spinner" aria-hidden="true"></div>
+                <p class="intro-loader-text" data-translate="loading.animation">Loading animation</p>
+            </div>
+        </section>
+
+        <section id="profile-content" class="section">
+<!--            <h1 data-translate="profile.name"></h1>-->
+            <div class="card-pack">
+<!--
+                <div id=profile_photo_card class="card profile_card">
+                    <img src="photos/sxuddqsrsxzkgbrhkxeo.avif" alt="Profile" class="profile_photo" width="320" height="480" decoding="async" fetchpriority="high">
+                    <div class="label label-rect" data-depth="0.1" data-translate="profile.tag">
+
+                    </div>
+                    <div class="label label-rect2" data-depth="0.1">
+
+                    </div>
+                    <div class="label label-pentagon" data-depth="0.2">
+                        <img class="label jet" src="photos/jet.png" alt="jet">
+                    </div>
+
+                    <div class="label label-pentagon2" data-depth="0.3">
+                    </div>
+
+                </div>
+
+                <div class="card" id="profile_text_card">
+                    <p data-translate="profile.content1" id="profile_text_card1"></p>
+                    <p data-translate="profile.content2" id="profile_text_card2"></p>
+                    <p data-translate="profile.content3" id="profile_text_card3"></p>
+                    <p data-translate="profile.content4" id="profile_text_card4"></p>
+                </div>
+-->
+
+                <h3 data-translate="profile.servicesHeader"></h3>
+                <div class="card" id="service1">
+                    <h4 data-translate="profile.service1Title"></h4>
+                    <p data-translate="profile.service1Text" id="servicet1"></p>
+                </div>
+
+                <div class="card" id="service2">
+                    <h4 data-translate="profile.service2Title"></h4>
+                    <p data-translate="profile.service2Text" id="servicet2"></p>
+                </div>
+
+                <div class="card" id="service3">
+                    <h4 data-translate="profile.service3Title"></h4>
+                    <p data-translate="profile.service3Text" id="servicet3"></p>
+                </div>
+
+                <div class="card" id="service4">
+                    <h4 data-translate="profile.service4Title"></h4>
+                    <p data-translate="profile.service4Text" id="servicet4"></p>
+                </div>
+
+                <h3 data-translate="profile.techHeader"></h3>
+                <div class="card">
+                    <div class="circle-scene" id="circleScene">
+                        <div class="circle-item" data-depth="0.18">
+<!--                            <div class="circle-inner">HTML</div>-->
+                            <img src="flags/icons8-chatgpt-50_2x.png" alt="gpt">
+                            <p data-translate="tech.gpt"></p>
+                        </div>
+                        <div class="circle-item" data-depth="0.26">
+                            <img src="flags/icons8-python-48_2x.png" alt="python">
+                            <p data-translate="tech.python"></p>
+                        </div>
+                        <div class="circle-item" data-depth="0.34">
+                            <img src="flags/icons8-sql-60_2x.png" alt="sql">
+                            <p data-translate="tech.sql"></p>
+                        </div>
+
+                        <div class="circle-item" data-depth="0.22">
+                            <img src="flags/icons8-git-50_2x.png" alt="git">
+                            <p data-translate="tech.git"></p>
+                        </div>
+                        <div class="circle-item" data-depth="0.3">
+                            <img src="flags/icons8-devops-50_2x.png" alt="devops">
+                            <p data-translate="tech.devops"></p>
+                        </div>
+                        <div class="circle-item" data-depth="0.38">
+                            <img src="flags/icons8-power-bi-50_2x.png" alt="powerbi">
+                            <p data-translate="tech.powerbi"></p>
+                        </div>
+                        <div class="circle-item" data-depth="0.24">
+                            <img src="flags/icons8-postman-api-100.png" alt="api">
+                            <p data-translate="tech.api"></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h3 data-translate="profile.projectsHeader"></h3>
+                <!--
+                <div id="traits" class="card traits">
+                    <div class="trait" data-depth="0.1">
+                        <div class="trait-labels"  style="--left-weight: 600;
+                         --right-weight: 800;
+                         --left-size: 0.85rem;
+                        --right-size: 1rem;">
+                            <span data-translate="traits.label1"></span>
+                            <span data-translate="traits.label2"></span>
+                        </div>
+                        <div class="slider">
+                            <div class="fill" style="--value: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="trait" data-depth="0.2">
+                        <div class="trait-labels" style="--left-weight: 600;
+                         --right-weight: 800;
+                         --left-size: 0.85rem;
+                        --right-size: 1rem;">
+                            <span data-translate="traits.label3"></span>
+                            <span data-translate="traits.label4"></span>
+                        </div>
+                        <div class="slider">
+                            <div class="fill" style="--value: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="trait" data-depth="0.3">
+                        <div class="trait-labels" style="--left-weight: 800;
+                         --right-weight: 600;
+                         --left-size: 1rem;
+                        --right-size: 0.85rem;">
+                            <span data-translate="traits.label5"></span>
+                            <span data-translate="traits.label6"></span>
+                        </div>
+                        <div class="slider">
+                            <div class="fill" style="--value: 30%"></div>
+                        </div>
+                    </div>
+
+                    <div class="trait" data-depth="0.4">
+                        <div class="trait-labels" style="--left-weight: 800;
+                         --right-weight: 600;
+                         --left-size: 1rem;
+                        --right-size: 0.85rem;">
+                            <span data-translate="traits.label7"></span>
+                            <span data-translate="traits.label8"></span>
+                        </div>
+                        <div class="slider">
+                            <div class="fill" style="--value: 40%"></div>
+                        </div>
+                    </div>
+                </div>
+                -->
+
+                <div class="card" id="project1">
+<!--                    <img src="flags/toyboy.png" alt="Project icon" class="project-icon">-->
+                    <h4 data-translate="profile.project1Title"></h4>
+                    <p data-translate="profile.project1Text"></p>
+                </div>
+
+                <div class="card" id="project2">
+                    <img src="flags/bezbalogo-circle.png" alt="Project icon" class="project-icon">
+                    <h4 data-translate="profile.project2Title"></h4>
+                    <p data-translate="profile.project2Text"></p>
+                </div>
+
+                <div class="card" id="project3">
+<!--                    <img src="flags/icons8-chatgpt-50_2x.png" alt="Project icon" class="project-icon">-->
+                    <h4 data-translate="profile.project3Title"></h4>
+                    <p data-translate="profile.project3Text"></p>
+                </div>
+
+                <div class="card" id="project4">
+<!--                    <img src="flags/icons8-chatgpt-50_2x.png" alt="Project icon" class="project-icon">-->
+                    <h4 data-translate="profile.project4Title"></h4>
+                    <p data-translate="profile.project4Text"></p>
+                </div>
+
+                <div class="card" id="project5">
+<!--                    <img src="flags/IDC-logo-2022-circle.png" alt="Project icon" class="project-icon">-->
+                    <h4 data-translate="profile.project5Title"></h4>
+                    <p data-translate="profile.project5Text"></p>
+                </div>
+
+                <div class="card" id="project6">
+                    <img src="flags/01-skoda-logo-picturemark-icon-transparent.png" alt="Project icon" class="project-icon">
+                    <h4 data-translate="profile.project6Title"></h4>
+                    <p data-translate="profile.project6Text"></p>
+                </div>
+
+<!--                <div class="card">-->
+<!--                    <p data-translate="profile.content6"></p>-->
+<!--                </div>-->
+            </div>
+        </section>
+
+        <section id="journey" class="section">
+            <h2 data-translate="journey.header"></h2>
+
+            <div class="timeline">
+                    <div class="timeline-axis"></div>
+                    <div class="timeline-item right">
+                        <div class="timeline-image hover-lift">
+                            <img alt="Skyline Sydney" src="photos/kiq4cbofu5lmkb41is2z.avif" class="timeline_photo" width="520" height="347" loading="lazy" decoding="async">
+                        </div>
+
+                        <div class="timeline-text">
+                        <h3 class="timeline-date">2024</h3>
+                        <h4 class="timeline-title" data-translate="journey.item1"></h4>
+                        <p data-translate="journey.journey1"></p>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-text">
+                            <h3 class="timeline-date">2023</h3>
+                            <h4 class="timeline-title" data-translate="journey.item2"></h4>
+                            <p data-translate="journey.journey2"></p>
+                        </div>
+
+                        <div class="timeline-image hover-lift">
+                            <img alt="Skyline Sydney" src="photos/kiq4cbofu5lmkb41is2z.avif" class="timeline_photo" width="520" height="347" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-image hover-lift">
+                            <img alt="Digitální nomád na cestách" src="photos/ocyfxm7cpjkb2tdq73cg.avif" class="timeline_photo" width="520" height="347" loading="lazy" decoding="async">
+                        </div>
+
+                        <div class="timeline-text">
+                        <h3 class="timeline-date">2021</h3>
+                        <h4 class="timeline-title" data-translate="journey.item3"></h4>
+                        <p data-translate="journey.journey3"></p>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="timeline-item left">
+                        <div class="timeline-text">
+                        <h3 class="timeline-date">2016</h3>
+                        <h4 class="timeline-title" data-translate="journey.item5"></h4>
+                        <p data-translate="journey.journey5"></p>
+
+                        </div>
+
+                        <div class="timeline-image hover-lift">
+                            <img alt="Začátky profesní cesty" src="photos/jvdjujj83iono0plkwoz.avif" class="timeline_photo" width="520" height="347" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <!--
+        <section id="etymology" class="canv_section">
+            <canvas id="cellCanvas" class="canvas"></canvas>
+            <div class="behind_canvas">
+                <h2 data-translate="etymology.header"></h2>
+                <p id="emycontent" data-translate="etymology.content"></p>
+            </div>
+        </section>
+        -->
+
+        <section id="contact" class="section">
+            <h2 data-translate="contact.header"></h2>
+            <p data-translate="contact.content"></p>
+            <div class="contact-options">
+                <a class="jump" href="https://wa.me/420721903790" target="_blank"><img alt="WhatsApp" src="flags/whatsapp.png" class="network"></a>
+                <a class="jump" href="https://www.linkedin.com/in/krystof-brzak" target="_blank"><img alt="Linkedin" src="flags/linkedin.png" class="network"></a>
+                <a class="jump" href="mailto:krystof.brzak@gmail.com" target="_blank"><img alt="Email" src="flags/email.png" class="network"></a>
+            </div>
+        </section>
+
+    </div>
+    <footer class="footer">
+        <p data-translate="footer"></p>
+    </footer>
+
+    <script src="i18n.js" defer></script>
+    <script src="site-ui.js" defer></script>
+    <script src="life_simulator.js" defer></script>
+</body>
+</html>

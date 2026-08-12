@@ -5,6 +5,25 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+    SITE_URL,
+    LANGS,
+    DEFAULT_LANG,
+    OG_LOCALE,
+    MONOGRAM_ARIA,
+    FLAG_ARIA,
+    CURRENT_LANG_ARIA,
+    homePath,
+    blogListPath,
+    articlePath,
+    absoluteUrl,
+    urlPathToFsPath,
+    slugify,
+    escapeHtml,
+    escapeAttr,
+    toJsonLdScript,
+    renderLangRedirectScript
+} from "./lib/shared.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -12,23 +31,7 @@ const BLOG_POSTS_PATH = path.join(ROOT, "blog-posts.json");
 const TRANSLATIONS_PATH = path.join(ROOT, "translations.json");
 const SITEMAP_PATH = path.join(ROOT, "sitemap.xml");
 
-const SITE_URL = "https://krystofbrzak.com";
-const LANGS = ["cs", "en", "de"];
-const DEFAULT_LANG = "cs";
-
 const DATE_LOCALE = { cs: "cs-CZ", en: "en-US", de: "de-DE" };
-const OG_LOCALE = { cs: "cs_CZ", en: "en_US", de: "de_DE" };
-const MONOGRAM_ARIA = {
-    cs: "Přejít na profil",
-    en: "Go to homepage",
-    de: "Zur Startseite gehen"
-};
-const FLAG_ARIA = { cs: "Čeština", en: "English", de: "Deutsch" };
-const CURRENT_LANG_ARIA = {
-    cs: "Aktuální jazyk: Čeština",
-    en: "Current language: English",
-    de: "Aktuelle Sprache: Deutsch"
-};
 
 const BLOG_UI = {
     cs: {
@@ -53,27 +56,6 @@ const BLOG_UI = {
         minRead: (minutes) => `${minutes} Min. Lesezeit`
     }
 };
-
-function slugify(value) {
-    return value
-        .normalize("NFD")
-        .replace(/[̀-ͯ]/g, "")
-        .toLowerCase()
-        .trim()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "");
-}
-
-function escapeHtml(value) {
-    return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-}
-
-function escapeAttr(value) {
-    return escapeHtml(value).replace(/"/g, "&quot;");
-}
 
 function toRootRelativeAsset(src) {
     const withoutParents = src.replace(/^(\.\.\/)+/, "/");
@@ -103,31 +85,6 @@ function tagLabel(tags, tagId, lang) {
     return tags?.[tagId]?.labels?.[lang] || tags?.[tagId]?.labels?.en || tagId;
 }
 
-function langPrefix(lang) {
-    return lang === DEFAULT_LANG ? "" : `/${lang}`;
-}
-
-function blogListPath(lang) {
-    return `${langPrefix(lang)}/blog/`;
-}
-
-function articlePath(lang, slug) {
-    return `${langPrefix(lang)}/blog/${slug}/`;
-}
-
-function absoluteUrl(urlPath) {
-    return `${SITE_URL}${urlPath}`;
-}
-
-function urlPathToFsPath(urlPath) {
-    const segments = urlPath.split("/").filter(Boolean);
-    return path.join(ROOT, ...segments, "index.html");
-}
-
-function toJsonLdScript(data) {
-    return JSON.stringify(data, null, 4).replace(/<\//g, "<\\/");
-}
-
 function renderHead({
     lang,
     title,
@@ -149,6 +106,7 @@ function renderHead({
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="${escapeAttr(description)}">
+${renderLangRedirectScript()}
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -177,9 +135,9 @@ ${jsonLd ? `    <script type="application/ld+json">\n${jsonLd}\n    </script>\n`
 
 function renderHeader({ lang, translations, blogListHref, langLinks }) {
     const menu = translations[lang].menu;
-    const homeProfile = `/?lang=${lang}&intro=skip#profile`;
-    const homeJourney = `/?lang=${lang}#journey`;
-    const homeContact = `/?lang=${lang}#contact`;
+    const homeProfile = `${homePath(lang)}?intro=skip#profile`;
+    const homeJourney = `${homePath(lang)}#journey`;
+    const homeContact = `${homePath(lang)}#contact`;
 
     const flagOptions = LANGS.map((optionLang) => {
         const href = langLinks[optionLang];
@@ -331,7 +289,6 @@ ${footer}
 }
 
 function buildListPage(lang, tags, articles, translations) {
-    const uiText = BLOG_UI[lang];
     const canonicalUrl = absoluteUrl(blogListPath(lang));
     const hreflangs = [
         ...LANGS.map((l) => ({ hreflang: l, href: absoluteUrl(blogListPath(l)) })),
@@ -349,7 +306,7 @@ function buildListPage(lang, tags, articles, translations) {
         ogType: "website",
         ogImage: `${SITE_URL}/favicon/android-chrome-512x512.png`,
         ogImageAlt: "Kryštof Brzák",
-        prefetchHref: `/?lang=${lang}`,
+        prefetchHref: homePath(lang),
         jsonLd: null
     });
 
@@ -358,7 +315,6 @@ function buildListPage(lang, tags, articles, translations) {
     const body = renderListBody({ lang, tags, articles });
     const footer = renderFooter(lang, translations);
 
-    void uiText;
     return renderPage({ lang, head, header, body, footer });
 }
 
@@ -410,12 +366,13 @@ function buildArticlePage(lang, article, tags, translations) {
 }
 
 async function writeSitemap(articles) {
-    const staticUrls = [
-        { loc: `${SITE_URL}/` },
-        { loc: `${SITE_URL}/?lang=cs` },
-        { loc: `${SITE_URL}/?lang=en` },
-        { loc: `${SITE_URL}/?lang=de` }
-    ];
+    const homeUrls = LANGS.map((lang) => ({
+        loc: absoluteUrl(homePath(lang)),
+        alternates: [
+            ...LANGS.map((l) => ({ hreflang: l, href: absoluteUrl(homePath(l)) })),
+            { hreflang: "x-default", href: absoluteUrl(homePath(DEFAULT_LANG)) }
+        ]
+    }));
 
     const blogUrls = [];
 
@@ -438,7 +395,7 @@ async function writeSitemap(articles) {
         }
     }
 
-    const urlEntries = [...staticUrls, ...blogUrls]
+    const urlEntries = [...homeUrls, ...blogUrls]
         .map((entry) => {
             const lastmodTag = entry.lastmod ? `\n    <lastmod>${entry.lastmod}</lastmod>` : "";
             const alternateTags = (entry.alternates || [])
@@ -488,7 +445,7 @@ async function main() {
     }
 
     for (const file of outputFiles) {
-        const fsPath = urlPathToFsPath(file.urlPath);
+        const fsPath = urlPathToFsPath(ROOT, file.urlPath);
         await fs.mkdir(path.dirname(fsPath), { recursive: true });
         await fs.writeFile(fsPath, file.content, "utf8");
     }
