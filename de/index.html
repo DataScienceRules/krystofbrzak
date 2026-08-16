@@ -142,10 +142,28 @@
 
     <div class="container">
         <section id="profile" class="intro-video-section intro-video-loading" aria-label="Drawing animation" aria-busy="true">
-            <video class="intro-video" autoplay muted playsinline preload="auto" poster="/photos/drawing_animation_final_frame.jpg">
-                <source src="/photos/drawing_animation.mp4" type="video/mp4">
-            </video>
-            <img class="intro-video-final-frame" src="/photos/drawing_animation_final_frame.jpg" alt="" aria-hidden="true" loading="eager" decoding="async">
+            <video
+                class="intro-video"
+                autoplay
+                muted
+                playsinline
+                preload="auto"
+                poster="/photos/drawing_animation_final_frame.jpg"
+                data-desktop-src="/photos/drawing_animation.mp4"
+                data-mobile-src="/photos/animace_mobile.mp4"
+                data-desktop-poster="/photos/drawing_animation_final_frame.jpg"
+                data-mobile-poster="/photos/animace_mobile_final_frame_1.1.2.jpg"
+            ></video>
+            <img
+                class="intro-video-final-frame"
+                src="/photos/drawing_animation_final_frame.jpg"
+                data-desktop-src="/photos/drawing_animation_final_frame.jpg"
+                data-mobile-src="/photos/animace_mobile_final_frame_1.1.2.jpg"
+                alt=""
+                aria-hidden="true"
+                loading="eager"
+                decoding="async"
+            >
             <div class="intro-video-loader" role="status" aria-live="polite">
                 <div class="intro-loader-spinner" aria-hidden="true"></div>
                 <p class="intro-loader-text" data-translate="loading.animation">Animation wird geladen</p>

@@ -2,6 +2,8 @@
     const INTRO_SKIP_PARAM = "intro";
     const INTRO_SKIP_VALUE = "skip";
     const INTRO_SESSION_KEY = "krystofIntroAnimationPlayed";
+    const INTRO_MOBILE_MEDIA_QUERY = "(max-width: 768px)";
+    const HEADER_REVEAL_AFTER_SECONDS = 3;
 
     if ("scrollRestoration" in window.history) {
         window.history.scrollRestoration = "manual";
@@ -88,6 +90,10 @@
             "",
             `${url.pathname}${url.search}${url.hash}`
         );
+    }
+
+    function isMobileIntroViewport() {
+        return window.matchMedia?.(INTRO_MOBILE_MEDIA_QUERY).matches || window.innerWidth <= 768;
     }
 
     /**
@@ -209,6 +215,7 @@
     function initIntroVideoLoader() {
         const introSection = document.querySelector(".intro-video-section");
         const introVideo = introSection?.querySelector(".intro-video");
+        const introFinalFrame = introSection?.querySelector(".intro-video-final-frame");
         const root = document.documentElement;
         const body = document.body;
 
@@ -223,10 +230,33 @@
         let isPlaybackStarting = false;
         let isHeaderVisible = false;
         let fallbackTimer = 0;
+        const isMobileIntro = isMobileIntroViewport();
 
         root.classList.add("intro-scroll-locked");
         body.classList.add("intro-scroll-locked", "intro-header-hidden");
         body.classList.remove("intro-header-visible");
+
+        function applyResponsiveIntroAssets({ loadVideo = false } = {}) {
+            const variant = isMobileIntro ? "mobile" : "desktop";
+            const videoSrc = introVideo.dataset[`${variant}Src`];
+            const posterSrc = introVideo.dataset[`${variant}Poster`];
+            const finalFrameSrc = introFinalFrame?.dataset[`${variant}Src`];
+
+            if (posterSrc && introVideo.getAttribute("poster") !== posterSrc) {
+                introVideo.setAttribute("poster", posterSrc);
+            }
+
+            if (introFinalFrame && finalFrameSrc && introFinalFrame.getAttribute("src") !== finalFrameSrc) {
+                introFinalFrame.setAttribute("src", finalFrameSrc);
+            }
+
+            if (!loadVideo || !videoSrc || introVideo.getAttribute("src") === videoSrc) {
+                return;
+            }
+
+            introVideo.setAttribute("src", videoSrc);
+            introVideo.load();
+        }
 
         function unlockScroll() {
             root.classList.remove("intro-scroll-locked");
@@ -248,13 +278,18 @@
                 return;
             }
 
+            if (introVideo.currentTime >= HEADER_REVEAL_AFTER_SECONDS) {
+                revealHeader();
+                return;
+            }
+
             const duration = introVideo.duration;
 
             if (!Number.isFinite(duration) || duration <= 0) {
                 return;
             }
 
-            if (duration - introVideo.currentTime <= 5) {
+            if (duration <= HEADER_REVEAL_AFTER_SECONDS) {
                 revealHeader();
             }
         }
@@ -299,6 +334,8 @@
                 settlePageTop();
             }
         }
+
+        applyResponsiveIntroAssets();
 
         if (shouldSkipIntroAnimation()) {
             bypassIntroLoading();
@@ -362,6 +399,8 @@
             completeIntroLoading({ revealHeaderNow: true });
             return;
         }
+
+        applyResponsiveIntroAssets({ loadVideo: true });
 
         if (introVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
             startIntroVideo();
@@ -486,6 +525,10 @@
         );
 
         faders.forEach((element) => {
+            if (element.matches(".blog-article-paragraph") || element.closest(".blog-list-view")) {
+                return;
+            }
+
             element.classList.add("fade-in-target");
             appearOnScroll.observe(element);
         });

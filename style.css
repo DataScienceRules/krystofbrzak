@@ -121,7 +121,7 @@ img {
 .intro-video {
     background: transparent;
     pointer-events: none;
-    transition: opacity 0.35s ease;
+    transition: none;
 }
 
 .intro-video-final-frame {
@@ -129,10 +129,11 @@ img {
     top: 50%;
     left: 50%;
     z-index: 1;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    transition: opacity 0.2s ease;
+    visibility: hidden;
+    transition: none;
 }
 
 .intro-video-section.intro-video-loading .intro-video {
@@ -140,11 +141,11 @@ img {
 }
 
 .intro-video-section.intro-video-final .intro-video {
-    opacity: 0;
+    opacity: 1;
 }
 
 .intro-video-section.intro-video-final .intro-video-final-frame {
-    opacity: 1;
+    visibility: visible;
 }
 
 .intro-video-loader {
@@ -1148,16 +1149,40 @@ img {
 
     .intro-video-section {
         width: 100vw;
+        min-height: calc(100svh - var(--mobile-header-height));
         margin: 0;
-        padding: 0;
+        padding: clamp(1.5rem, 8svh, 4.5rem) 0 0;
+        align-items: flex-start;
         justify-content: center;
         overflow: hidden;
     }
 
     .intro-video,
     .intro-video-final-frame {
-        width: 130vw;
+        width: 100vw;
         max-width: none;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+    }
+
+    .intro-video {
+        transition: none;
+    }
+
+    .intro-video-final-frame {
+        top: clamp(1.5rem, 8svh, 4.5rem);
+        opacity: 1;
+        transform: translateX(-50%);
+        visibility: hidden;
+        transition: none;
+    }
+
+    .intro-video-section.intro-video-final .intro-video {
+        opacity: 1;
+    }
+
+    .intro-video-section.intro-video-final .intro-video-final-frame {
+        visibility: visible;
     }
 
     .header {
@@ -1950,8 +1975,20 @@ img {
     overflow: hidden;
     padding: 0;
     text-align: left;
+    color: inherit;
     cursor: pointer;
+    text-decoration: none;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.blog-page .blog-article-card:hover,
+.blog-page .blog-article-card:focus,
+.blog-page .blog-article-card:focus-visible,
+.blog-page .blog-article-card *,
+.blog-page .blog-article-card:hover *,
+.blog-page .blog-article-card:focus *,
+.blog-page .blog-article-card:focus-visible * {
+    text-decoration: none;
 }
 
 .blog-page .blog-article-card:hover {
